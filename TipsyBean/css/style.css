@@ -1,3 +1,54 @@
+/* Footer Styles */
+.footer-custom {
+    background: #000;
+    color: #6f4e37;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    border-top: 2px solid #6f4e37;
+}
+.footer-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(32%) sepia(19%) saturate(1162%) hue-rotate(353deg) brightness(97%) contrast(89%);
+    transition: transform 0.2s;
+}
+.footer-icon-link:hover .footer-icon {
+    transform: scale(1.12) rotate(-8deg);
+    filter: brightness(1.2) sepia(1) hue-rotate(10deg) saturate(2);
+}
+/* Card Selection Section Styles */
+.card-selection-img {
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    background: #f8f5f2;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+/* Beautiful Google Map button styling */
+.btn-google-map {
+    background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%);
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 4px 16px rgba(111, 78, 55, 0.15);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    padding: 0.85rem 2.5rem;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-google-map:hover, .btn-google-map:focus {
+    background: linear-gradient(90deg, #6f4e37 0%, #a67c52 100%);
+    color: #fff !important;
+    box-shadow: 0 8px 32px rgba(111, 78, 55, 0.25);
+    transform: translateY(-2px) scale(1.04);
+    text-decoration: none;
+}
 
 /* Professional hero caption styling */
 .hero-caption {
