@@ -30,7 +30,8 @@ main {
 
 /* Navbar styles */
 header {
-    position: relative;
+    position: fixed;
+    top: 0;
     z-index: 10;
     width: 100vw;
     background: #000;
