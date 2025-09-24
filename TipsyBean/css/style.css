@@ -19,8 +19,9 @@
 }
 /* Card Selection Section Styles */
 .card-selection-img {
-    height: 220px;
-    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
     object-position: center;
     background: #f8f5f2;
     border-top-left-radius: 1rem;
