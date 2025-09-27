@@ -1,3 +1,246 @@
+/* =============================== */
+/* Location Section Styles          */
+/* =============================== */
+
+.location-section {
+    background: #fff;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0 1.5rem 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid #f5e9da;
+}
+
+.location-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    width: 90vw;
+    gap: 0.8rem;
+}
+
+.location-pin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.location-pin {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.location-title {
+    font-family: 'Montserrat', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6f4e37;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.location-description {
+    word-break: break-word;
+    height: calc(2 * 1.7em); /* 2 lines at line-height 1.7 */
+    font-family: 'Montserrat', serif;
+    font-size: 1.1rem;
+    color: #3e2723;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    text-align: center;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+}
+
+.google-map-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%);
+    color: #fff;
+    font-family: 'Montserrat', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.7rem 2.2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(166, 124, 82, 0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+}
+.google-map-btn:hover, .google-map-btn:focus {
+    background: linear-gradient(90deg, #6f4e37 0%, #a67c52 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(166, 124, 82, 0.18);
+    transform: translateY(-2px) scale(1.04);
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .location-content {
+        max-width: 98vw;
+        gap: 0.5rem;
+    }
+    .location-title {
+        font-size: 1.3rem;
+    }
+    .location-pin {
+        width: 50px;
+        height: 50px;
+    }
+    .google-map-btn {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .location-section {
+        padding: 0.7rem 0 0.7rem 0;
+    }
+    .location-content {
+        gap: 0.3rem;
+    }
+    .location-title {
+        font-size: 1.05rem;
+    }
+    .location-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* End Location Section Styles */
+/* =============================== */
+/* About Us Section Styles          */
+/* =============================== */
+
+.about-section {
+    background: #fff;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 3rem 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid #f5e9da;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 90vw;
+    gap: 2.5rem;
+}
+
+/* Left: Text */
+.about-text {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.about-title {
+    font-family: 'Montserrat', serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #6f4e37;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+}
+.about-description {
+    font-family: 'Montserrat', serif;
+    font-size: 1.15rem;
+    color: #3e2723;
+    line-height: 1.7;
+    margin-bottom: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Right: Logo */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* About Us Logo: Bigger, No Border */
+/* About Us Logo: No Background, Even Bigger */
+.about-logo {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 40px;
+    box-shadow: 0 4px 24px rgba(166, 124, 82, 0.12);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .about-content {
+        gap: 1.2rem;
+    }
+    .about-title {
+        font-size: 1.7rem;
+    }
+    .about-logo {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    .about-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .about-text {
+        align-items: center;
+        text-align: center;
+    }
+    .about-title {
+        font-size: 1.3rem;
+    }
+    .about-logo {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 500px) {
+    .about-section {
+        padding: 1.2rem 0 1.2rem 0;
+    }
+    .about-content {
+        width: 98vw;
+        gap: 0.7rem;
+    }
+    .about-title {
+        font-size: 1.05rem;
+    }
+    .about-description {
+        font-size: 0.95rem;
+    }
+    .about-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* End About Us Section Styles */
 /* -------------------------------------------------- */
 /* Hero Banner Styles */
 /* -------------------------------------------------- */
