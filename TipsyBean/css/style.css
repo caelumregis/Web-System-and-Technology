@@ -1,308 +1,200 @@
-/* Footer Styles */
-.footer-custom {
+@media (max-width: 480px) {
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin: 0 auto 0 auto;
+        width: 100vw;
+        background: #000;
+        box-shadow: none;
+        padding: 12px 0 12px 0;
+        border-top: 2px solid #C59401;
+        z-index: 999;
+    }
+    .navbar-item {
+        margin: 0;
+    }
+    .navbar-link {
+        font-size: 1rem;
+        padding: 6px 0;
+        width: auto;
+        text-align: center;
+        border-bottom: none;
+        border-radius: 4px;
+        transition: background 0.2s;
+        color: #fff;
+        font-weight: 700;
+    }
+    .navbar-link:hover {
+        background: rgba(197,148,1,0.08);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 56px;
+        padding: 8px 12px;
+        position: fixed;
+        width: 100vw;
+        margin: 0;
+        background: #000;
+        z-index: 1000;
+    }
+    .navbar-logo {
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+    }
+    .navbar-title {
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 700;
+        margin-right: 16px;
+        margin-left: 0;
+        text-align: left;
+        white-space: nowrap;
+    }
+    .logo-img, #logo-img {
+        width: 32px;
+        height: 32px;
+    }
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin: 0;
+        width: auto;
+        background: transparent;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+    }
+    .navbar-item {
+        margin: 0;
+    }
+    .navbar-link {
+        font-size: 1rem;
+        padding: 6px 0;
+        width: auto;
+        text-align: center;
+        border-bottom: none;
+        border-radius: 4px;
+        transition: background 0.2s;
+        color: #fff;
+        font-weight: 700;
+    }
+    .navbar-link:hover {
+        background: rgba(197,148,1,0.08);
+    }
+}
+/* Google Fonts for Navbar */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* Navbar Styles */
+.navbar {
     background: #000;
-    color: #6f4e37;
-    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-    font-size: 1.1rem;
-    border-top: 2px solid #6f4e37;
-}
-.footer-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(32%) sepia(19%) saturate(1162%) hue-rotate(353deg) brightness(97%) contrast(89%);
-    transition: transform 0.2s;
-}
-.footer-icon-link:hover .footer-icon {
-    transform: scale(1.12) rotate(-8deg);
-    filter: brightness(1.2) sepia(1) hue-rotate(10deg) saturate(2);
-}
-/* Card Selection Section Styles */
-.card-selection-img {
-    height: 220px;
-    object-fit: cover;
-    object-position: center;
-    background: #f8f5f2;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-}
-/* Beautiful Google Map button styling */
-.btn-google-map {
-    background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%);
-    color: #fff !important;
-    border: none;
-    box-shadow: 0 4px 16px rgba(111, 78, 55, 0.15);
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    padding: 0.85rem 2.5rem;
-    border-radius: 2rem;
-    font-size: 1.25rem;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
-.btn-google-map:hover, .btn-google-map:focus {
-    background: linear-gradient(90deg, #6f4e37 0%, #a67c52 100%);
-    color: #fff !important;
-    box-shadow: 0 8px 32px rgba(111, 78, 55, 0.25);
-    transform: translateY(-2px) scale(1.04);
-    text-decoration: none;
-}
-
-/* Professional hero caption styling */
-.hero-caption {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-end;
-    background: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-    margin-top: 0.5rem;
-}
-/* Hero image overlay text styles */
-.hero-text-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: auto;
-    max-width: 90vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-text-container {
-    margin-right: 60px;
-}
-
-@media (min-width: 576px) {
-    /* Removed duplicate margin for clarity */
-}
-
-@media (min-width: 992px) {
-    .hero-text-container {
-        margin-right: 80px;
-    }
-}
-
-.hero-title {
-    text-align: left;
-    text-shadow: 0 4px 24px rgba(0,0,0,0.7), 0 1px 2px #000;
-    letter-spacing: 2px;
-    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-    margin-bottom: 1.2rem;
-    font-size: 2.2rem;
-    line-height: 1.1;}
-@media (min-width: 400px) {
-    .hero-title {
-        font-size: 2.6rem;
-    }
-    .hero-caption {
-        max-width: 95vw;
-        padding: 1rem 1.5rem;
-    }
-}
-
-@media (min-width: 576px) {
-    .hero-title {
-        font-size: 3.2rem;
-    }
-    .hero-caption {
-        max-width: 80vw;
-        padding: 1.2rem 2rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .hero-title {
-        font-size: 4rem;
-    }
-    .hero-caption {
-        max-width: 600px;
-        padding: 1.5rem 2.5rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-title {
-        font-size: 5rem;
-    }
-    .hero-caption {
-        max-width: 700px;
-        padding: 1.8rem 3rem;
-    }
-}
-
-
-@media (min-width: 576px) {
-    .hero-title {
-        font-size: 5rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .hero-title {
-        font-size: 6rem;
-    }
-}
-
-
-.hero-caption p {
-    text-align: right;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-}
-/* Import a modern font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap');
-
-/* Ensure html and body take full height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    min-height: 100vh;
     width: 100vw;
-    overflow-x: hidden;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Make main fill remaining space after navbar */
-main {
-    flex: 1 0 auto;
-    width: 100vw;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-}
-
-/* Navbar styles */
-header {
+    padding: 10px 24px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    height: 64px;
     position: fixed;
     top: 0;
-    z-index: 10;
-    width: 100vw;
-    background: #000;
-    margin: 0;
-    padding: 0;
-    flex-shrink: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 1000;
 }
 
-.navbar {
-    width: 100vw;
-    margin: 0;
-    border-radius: 0;
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+.navbar-logo, .navbar-title {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    margin-right: 10px;
+}
+
+.navbar-title {
     color: #fff;
-    padding: 0.8rem 15px;
-    border-radius: 0 0 16px 16px;
-    margin-left: 0;
-    margin-right: 0;
-    box-shadow: 0 2px 12px rgba(35, 22, 13, 0.10);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.navbar-brand img {
-    height: 44px;
-    margin-right: 10px; /* Changed from 12px to 10px */
-    border-radius: 8px;
-    background: #3e2723;
-    border: 2px solid #6f4e37;
-    box-shadow: 0 2px 8px rgba(111, 78, 55, 0.10);
-}
-
-.navbar-brand span {
-    color: #fff !important;
+    font-size: 2.5rem;
     font-weight: 700;
-    font-size: 2rem;
-    letter-spacing: 1px;
+    margin-right: 10px;
 }
 
-.nav-links {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    /* Ensure inner content respects navbar's padding */
+.logo-img, #logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
 }
 
-.nav-item {
+.navbar-links {
     display: flex;
     align-items: center;
-}
-
-.nav-link {
-    color: #fff !important;
-    font-weight: 500;
-    font-size: 1.08rem;
-    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-    text-decoration: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    transition: 
-        background 0.2s,
-        color 0.2s,
-        box-shadow 0.2s;
-    border-bottom: 2px solid transparent;
-}
-
-.nav-link.active,
-.nav-link:hover,
-.nav-link:focus {
-    background: #222;
-    color: #fff !important;
-    border-bottom: 2px solid #fff;
-    box-shadow: 0 2px 8px rgba(166, 124, 82, 0.10);
-    outline: none;
-}
-
-#hero-image {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    display: block;
-    margin: 0;
+    justify-content: flex-end;
+    margin-left: auto;
+    list-style: none;
     padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+    gap: 24px;
+    height: 100%;
+    margin-right: 80px;
 }
 
+.navbar-item {
+    margin-left: 15px;
+}
+
+.navbar-link, #nav-home, #nav-about, #nav-menu, #nav-order {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.navbar-link::after, #nav-home::after, #nav-about::after, #nav-menu::after, #nav-order::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #C59401;
+    transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after, #nav-home:hover::after, #nav-about:hover::after, #nav-menu:hover::after, #nav-order:hover::after {
+    width: 100%;
+    }
 
 
+.navbar-link:hover, #nav-home:hover, #nav-about:hover, #nav-menu:hover, #nav-order:hover {
+    color: 	#C59401;
+}
+/* Navbar Logo Image Size */
+#logo-img, .logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+.logo-img {
+    height: 40px;
+    width: 40px;
+}
 
-
-
-
-
+/* Navbar Styles */
