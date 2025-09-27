@@ -1,100 +1,196 @@
-@media (max-width: 480px) {
-    .navbar-links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        margin: 0 auto 0 auto;
+/* -------------------------------------------------- */
+/* Hero Section Overlay Styles */
+/* -------------------------------------------------- */
+.hero-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 64px);
+}
+.main-image {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: right;
+    margin-right: 50px;
+    color: #fff;
+    width: 50vw;
+    max-width: 600px;
+}
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: right;
+}
+.latte-title {
+    color: #d2b48c;
+}
+.hero-desc {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    text-align: right;
+    margin-right: 0;
+}
+/* -------------------------------------------------- */
+/* Prevent Horizontal Scroll */
+/* -------------------------------------------------- */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #000
+}
+/* -------------------------------------------------- */
+/* Google Fonts Import */
+/* -------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+/* -------------------------------------------------- */
+/* Navbar Styles */
+/* -------------------------------------------------- */
+.navbar {
+    background: #000;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    padding: 10px 24px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 1000;
+}
+
+/* Logo and Title */
+.navbar-logo, .navbar-title {
+    display: flex;
+    align-items: center;
+}
+.navbar-logo {
+    margin-right: 10px;
+}
+.navbar-title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+/* Logo Image */
+.logo-img, #logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+}
+.logo-img {
+    height: 40px;
+    width: 40px;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    list-style: none;
+    padding: 0;
+    gap: 24px;
+    height: 100%;
+    margin-right: 80px;
+}
+.navbar-item {
+    margin-left: 15px;
+}
+.navbar-link, #nav-home, #nav-about, #nav-menu, #nav-order {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: color 0.2s;
+    position: relative;
+}
+.navbar-link::after, #nav-home::after, #nav-about::after, #nav-menu::after, #nav-order::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #C59401;
+    transition: width 0.3s ease;
+}
+.navbar-link:hover::after, #nav-home:hover::after, #nav-about:hover::after, #nav-menu:hover::after, #nav-order:hover::after {
+    width: 100%;
+}
+.navbar-link:hover, #nav-home:hover, #nav-about:hover, #nav-menu:hover, #nav-order:hover {
+    color: #C59401;
+}
+
+/* -------------------------------------------------- */
+/* Main Image Styles */
+/* -------------------------------------------------- */
+.main-image, #main-image {
+        display: block;
         width: 100vw;
-        background: #000;
-        box-shadow: none;
-        padding: 12px 0 12px 0;
-        border-top: 2px solid #C59401;
-        z-index: 999;
-    }
-    .navbar-item {
+        max-width: 100vw;
+        height: calc(100vh - 64px);
+        object-fit: cover;
         margin: 0;
-    }
-    .navbar-link {
-        font-size: 1rem;
-        padding: 6px 0;
-        width: auto;
-        text-align: center;
-        border-bottom: none;
-        border-radius: 4px;
-        transition: background 0.2s;
-        color: #fff;
-        font-weight: 700;
-    }
-    .navbar-link:hover {
-        background: rgba(197,148,1,0.08);
+        padding: 0;
+}
+
+/* Responsive Main Image for Mobile */
+@media (max-width: 480px) {
+    .main-image, #main-image {
+        height: calc(100vh - 120px);
+        width: 100vw;
+        max-width: 100vw;
     }
 }
 
+/* -------------------------------------------------- */
+/* Responsive Navbar Logo Title for Mobile */
+/* -------------------------------------------------- */
 @media (max-width: 480px) {
-    .navbar {
-        display: flex;
+    .navbar-logo-title {
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
-        height: 56px;
-        padding: 8px 12px;
-        position: fixed;
-        width: 100vw;
-        margin: 0;
-        background: #000;
-        z-index: 1000;
-    }
-    .navbar-logo {
-        margin-right: 8px;
-        display: flex;
-        align-items: center;
-    }
-    .navbar-title {
-        font-size: 1.2rem;
-        color: #fff;
-        font-weight: 700;
-        margin-right: 16px;
-        margin-left: 0;
-        text-align: left;
-        white-space: nowrap;
-    }
-    .logo-img, #logo-img {
-        width: 32px;
-        height: 32px;
-    }
-    .navbar-links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        margin: 0;
-        width: auto;
-        background: transparent;
-        position: static;
-        box-shadow: none;
-        padding: 0;
-    }
-    .navbar-item {
-        margin: 0;
-    }
-    .navbar-link {
-        font-size: 1rem;
-        padding: 6px 0;
-        width: auto;
-        text-align: center;
-        border-bottom: none;
-        border-radius: 4px;
-        transition: background 0.2s;
-        color: #fff;
-        font-weight: 700;
-    }
-    .navbar-link:hover {
-        background: rgba(197,148,1,0.08);
+        width: 100%;
     }
 }
+.main-image {
+    display: block;
+    width: 100vw;
+    max-width: 100%;
+    height: calc(100vh - 64px);
+    object-fit: cover;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@media (max-width: 480px) {
+    .main-image {
+        height: calc(100vh - 120px);
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+
+
 /* Google Fonts for Navbar */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
@@ -197,4 +293,20 @@
     width: 40px;
 }
 
-/* Navbar Styles */
+/* Hero Image Design */
+.main-image, #main-image {
+    width: auto;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+    margin: 0px;  
+}
+
+
+@media (max-width: 480px) {
+    .navbar-logo-title {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+}
