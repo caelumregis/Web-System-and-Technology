@@ -1,4 +1,81 @@
 /* -------------------------------------------------- */
+/* Hero Banner Styles */
+/* -------------------------------------------------- */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+.hero-image-wrapper {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.hero-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.hero-caption {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: right;
+    color: #fff;
+    width: 50vw;
+    max-width: 600px;
+    margin-right: 50px;
+    padding: 0;
+}
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: right;
+}
+.latte-title {
+    color: #d2b48c;
+}
+.hero-desc {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+@media (max-width: 900px) {
+    .hero-caption {
+        width: 70vw;
+        margin-right: 20px;
+        max-width: 90vw;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-caption {
+        width: 90vw;
+        margin-right: 10px;
+        max-width: 100vw;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-desc {
+        font-size: 1rem;
+    }
+}
+/* -------------------------------------------------- */
 /* Hero Section Overlay Styles */
 /* -------------------------------------------------- */
 .hero-container {
