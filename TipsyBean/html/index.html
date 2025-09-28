@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
   <!-- Google Fonts: Montserrat -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- Navigation Bar -->
   <header>
@@ -15,67 +17,102 @@
     <nav class="navbar" id="main-navbar">
       <div class="navbar-logo-title">
         <div class="navbar-logo" id="navbar-logo">
-        <img src="../assets/logo.jpeg" alt="Tipsy Bean Logo" class="logo-img" id="logo-img">
+          <img src="../assets/logo.jpeg" alt="Tipsy Bean Logo" class="logo-img" id="logo-img">
         </div>
+        <span class="navbar-title" id="navbar-title">Tipsy Bean</span>
       </div>
-      
-      <span class="navbar-title" id="navbar-title">Tipsy Bean</span>
       <ul class="navbar-links" id="navbar-links">
         <li class="navbar-item"><a href="#home" class="navbar-link" id="nav-home">Home</a></li>
-        <li class="navbar-item"><a href="#about" class="navbar-link" id="nav-about">About</a></li>
-        <li class="navbar-item"><a href="#menu" class="navbar-link" id="nav-menu">Menu</a></li>
-        <li class="navbar-item"><a href="#order" class="navbar-link" id="nav-order">Order</a></li>
+        <li class="navbar-item"><a href="#about-section" class="navbar-link" id="nav-about">About</a></li>
+        <li class="navbar-item"><a href="#menu-section" class="navbar-link" id="nav-menu">Menu</a></li>
+        <li class="navbar-item"><a href="#order-section" class="navbar-link" id="nav-order">Order</a></li>
       </ul>
     </nav>
-    
     <!-- Navbar End -->
-
-    <main>
-      <!-- ...existing code... -->
-      <section class="hero" aria-label="Hero Banner">
-        <figure class="hero-image-wrapper">
-          <img src="../assets/CoffeeShop Interior.jpg" alt="Coffee Shop Interior" class="hero-image">
-          <figcaption class="hero-caption">
-            <h1 class="hero-title">Welcome to <span class="latte-title">Tipsy Bean</span></h1>
-            <p class="hero-desc">Your cozy corner for the finest coffee and pastries.</p>
-          </figcaption>
-        </figure>
-      </section>
-      <!-- About Us Section -->
-      <section class="about-section" id="about-section">
-        <div class="about-content">
-          <div class="about-image">
-            <img src="../assets/logo.jpeg" alt="Tipsy Bean Logo" class="about-logo" />
-          </div>
-          <div class="about-text">
-            <h2 class="about-title">About Us</h2>
-            <p class="about-description">
-              In the heart of the city, Tipsy Bean began as a dream between friends<br>
-              who believed every cup of coffee could spark a new story. From the<br>
-              aroma of freshly ground beans to the laughter echoing off brick walls,<br>
-              our shop became a haven for artists, thinkers, and wanderers alike.<br>
-              Here, every mug is a chapter, every pastry a plot twist, and every guest a<br>
-              cherished character in our ongoing tale. Welcome to Tipsy Bean—where<br>
-              your story is always brewing.
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- Location Section -->
-      <section class="location-section" id="find-us">
-        <div class="location-content">
-          <div class="location-pin-wrapper">
-            <img src="../assets/pin.png" alt="Location Pin" class="location-pin" />
-          </div>
-          <h2 class="location-title">Find your way to us</h2>
-          <p class="location-description">
-            Looking for your next favorite coffee spot? Use the map below to find our location and<br>
-            enjoy a cozy cup at Tipsy Bean. We can’t wait to welcome you!
-          </p>
-          <a href="https://bit.ly/3I8A1pq" class="google-map-btn" target="_blank" rel="noopener">Google Map</a>
-        </div>
-      </section>
-    </main>
   </header>
+
+  <main>
+    <!-- Hero Banner Section -->
+    <section class="hero" aria-label="Hero Banner">
+      <figure class="hero-image-wrapper">
+        <img src="../assets/CoffeeShop Interior.jpg" alt="Coffee Shop Interior" class="hero-image">
+        <figcaption class="hero-caption">
+          <h1 class="hero-title">Welcome to <span class="latte-title">Tipsy Bean</span></h1>
+          <p class="hero-desc">Your cozy corner for the finest coffee and pastries.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about-section">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="../assets/logo.jpeg" alt="Tipsy Bean Logo" class="about-logo" />
+        </div>
+        <div class="about-text">
+          <h2 class="about-title">About Us</h2>
+          <p class="about-description">
+            In the heart of the city, Tipsy Bean began as a dream between friends<br>
+            who believed every cup of coffee could spark a new story. From the<br>
+            aroma of freshly ground beans to the laughter echoing off brick walls,<br>
+            our shop became a haven for artists, thinkers, and wanderers alike.<br>
+            Here, every mug is a chapter, every pastry a plot twist, and every guest a<br>
+            cherished character in our ongoing tale. Welcome to Tipsy Bean—where<br>
+            your story is always brewing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="find-us">
+      <div class="location-content">
+        <div class="location-pin-wrapper">
+          <img src="../assets/pin.png" alt="Location Pin" class="location-pin" />
+        </div>
+        <h2 class="location-title">Find your way to us</h2>
+        <p class="location-description">
+          Looking for your next favorite coffee spot? Use the map below to find our location
+        </p>
+        <a href="https://bit.ly/3I8A1pq" class="google-map-btn" target="_blank" rel="noopener">Google Map</a>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu-section">
+      <div class="menu-content">
+        <h2 class="menu-title">Our Menu</h2>
+        <div class="menu-items">
+          <div class="menu-card beverages">
+            <img src="../assets/Coffee.png" alt="Beverages" class="menu-img" />
+            <h3 class="menu-item-title">Beverages</h3>
+          </div>
+          <div class="menu-card food">
+            <img src="../assets/Pasta.png" alt="Food" class="menu-img" />
+            <h3 class="menu-item-title">Food</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order-section" id="order-section">
+      <div class="order-content">
+        <div class="order-text">
+          <h2 class="order-title">Bringing Goodness to You</h2>
+          <p class="order-description">Order from our delivery partners and have it delivered right to your doorstep.</p>
+          <div class="order-buttons">
+            <a href="https://www.foodpanda.ph/" class="order-btn foodpanda" target="_blank" rel="noopener">Order via Foodpanda</a>
+            <a href="https://www.grab.com/ph/food/" class="order-btn grabfood" target="_blank" rel="noopener">Order via GrabFood</a>
+          </div>
+        </div>
+        <div class="order-image">
+          <img src="../assets/DeliveryIcon.png" alt="Delivery Icon" class="delivery-img" />
+        </div>
+      </div>
+    </section>  
+        
+  </main>
+
 </body>
 </html>
