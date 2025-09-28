@@ -1,4 +1,91 @@
 /* =============================== */
+/* Footer Section Styles            */
+/* =============================== */
+
+.footer-section {
+        background: #000;
+    width: 100vw;
+    border-top: 2px solid #f5e9da;
+    padding: 1.5rem 0 1.5rem 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    width: 90vw;
+    gap: 2rem;
+}
+
+.footer-text {
+    font-family: 'Montserrat', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+.footer-icon-link {
+    display: inline-block;
+    transition: transform 0.2s;
+}
+.footer-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: filter 0.2s, transform 0.2s;
+    filter: brightness(1.2) grayscale(0) drop-shadow(0 0 0px #000);
+    color: #fff;
+}
+.footer-icon-link:hover .footer-icon {
+    transform: scale(1.12) rotate(-8deg);
+    filter: brightness(1.2) drop-shadow(0 0 12px #C59401);
+}
+
+@media (max-width: 700px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 98vw;
+    }
+    .footer-text {
+        text-align: center;
+        font-size: 1rem;
+    }
+    .footer-social {
+        gap: 0.7rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-section {
+        padding: 0.7rem 0 0.7rem 0;
+    }
+    .footer-content {
+        gap: 0.5rem;
+    }
+    .footer-text {
+        font-size: 0.95rem;
+    }
+    .footer-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* End Footer Section Styles */
+/* =============================== */
 /* Order Section Styles             */
 /* =============================== */
 
@@ -88,7 +175,7 @@
             background: transparent;
             box-shadow: none;
     }
-}
+
 
 /* Responsive Design */
 @media (max-width: 900px) {
