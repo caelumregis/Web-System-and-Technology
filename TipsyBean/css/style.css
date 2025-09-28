@@ -1218,3 +1218,13 @@ html, body {
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 430px) {
+    .about-description {
+        font-size: 0.9rem !important;
+        line-height: 1.5;
+        text-align: justify;
+        word-break: normal;
+        hyphens: auto;
+    }
+}
