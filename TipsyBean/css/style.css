@@ -3,10 +3,10 @@
 /* =============================== */
 
 .footer-section {
-        background: #000;
+    background: #000;
     width: 100vw;
     border-top: 2px solid #f5e9da;
-    padding: 1.5rem 0 1.5rem 0;
+    padding: 1.5rem 0;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -52,9 +52,25 @@
     filter: brightness(1.2) drop-shadow(0 0 12px #C59401);
 }
 
+@media (max-width: 700px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 98vw;
+    }
+    .footer-text {
+        text-align: center;
+        font-size: 1rem;
+    }
+    .footer-social {
+        gap: 0.7rem;
+    }
+}
+
 @media (max-width: 500px) {
     .footer-section {
-        padding: 0.7rem 0 0.7rem 0;
+        padding: 0.7rem 0;
     }
     .footer-content {
         gap: 0.5rem;
@@ -67,7 +83,6 @@
         height: 28px;
     }
 }
-
 /* End Footer Section Styles */
 /* =============================== */
 /* Order Section Styles             */
