@@ -24,10 +24,10 @@
 }
 
 .footer-text {
-    font-family: 'Montserrat', serif;
+    font-family: 'Raleway', serif;
     font-size: 1.1rem;
     color: #fff;
-    font-weight: 500;
+    font-weight: 200;
 }
 
 .footer-social {
@@ -118,7 +118,7 @@
     align-items: flex-start;
 }
 .order-title {
-    font-family: 'Montserrat', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 2.3rem;
     font-weight: 700;
     color: #6f4e37;
@@ -126,7 +126,8 @@
     letter-spacing: 2px;
 }
 .order-description {
-    font-family: 'Montserrat', serif;
+    font-family: 'Raleway', serif;
+    font-weight: 500;
     font-size: 1.15rem;
     color: #3e2723;
     line-height: 1.7;
@@ -140,8 +141,8 @@
     gap: 1rem;
 }
 .order-btn {
-    font-family: 'Montserrat', serif;
-    font-weight: 600;
+    font-family: 'Open Sans', serif;
+    font-weight: 500;
     font-size: 1.1rem;
     padding: 0.7rem 2.2rem;
     border-radius: 2rem;
@@ -317,8 +318,8 @@
 }
 
 .menu-title {
-    font-family: 'Montserrat', serif;
-    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #6f4e37;
     margin-bottom: 0.5rem;
@@ -364,9 +365,9 @@
 }
 
 .menu-item-title {
-    font-family: 'Montserrat', serif;
+    font-family: 'Raleway', serif;
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #6f4e37;
     text-align: center;
     margin: 1.2rem 0 1.2rem 0;
@@ -463,8 +464,8 @@
 }
 
 .location-title {
-    font-family: 'Montserrat', serif;
-    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #6f4e37;
     margin-bottom: 0.5rem;
@@ -474,8 +475,8 @@
 .location-description {
     word-break: break-word;
     height: calc(2 * 1.7em); /* 2 lines at line-height 1.7 */
-    font-family: 'Montserrat', serif;
-    font-size: 1.1rem;
+    font-family: 'Raleway', serif;
+    font-size: 1.15rem;
     color: #3e2723;
     line-height: 1.7;
     margin-bottom: 0.5rem;
@@ -493,8 +494,8 @@
     display: inline-block;
     background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%);
     color: #fff;
-    font-family: 'Montserrat', serif;
-    font-weight: 600;
+    font-family: 'Open Sans', serif;
+    font-weight: 500;
     font-size: 1.1rem;
     padding: 0.7rem 2.2rem;
     border-radius: 2rem;
@@ -579,15 +580,15 @@
     align-items: flex-start;
 }
 .about-title {
-    font-family: 'Montserrat', serif;
-    font-size: 2.3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #6f4e37;
     margin-bottom: 1.2rem;
     letter-spacing: 2px;
 }
 .about-description {
-    font-family: 'Montserrat', serif;
+    font-family: 'Raleway', serif;
     font-size: 1.15rem;
     color: #3e2723;
     line-height: 1.7;
@@ -595,6 +596,9 @@
     background: none;
     border-radius: 0;
     box-shadow: none;
+    text-align: justify;
+    padding: 10px;
+    
 }
 
 /* Right: Logo */
@@ -610,8 +614,6 @@
     width: 320px;
     height: 320px;
     object-fit: cover;
-    border-radius: 40px;
-    box-shadow: 0 4px 24px rgba(166, 124, 82, 0.12);
 }
 
 /* Responsive Design */
@@ -647,7 +649,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 430px) {
     .about-section {
         padding: 1.2rem 0 1.2rem 0;
     }
@@ -793,10 +795,7 @@ html, body {
     overflow-x: hidden;
     background-color: #000
 }
-/* -------------------------------------------------- */
-/* Google Fonts Import */
-/* -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 
 /* -------------------------------------------------- */
 /* Navbar Styles */
@@ -807,7 +806,7 @@ html, body {
     align-items: center;
     width: 100vw;
     padding: 10px 24px;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Playfair Display', Arial, sans-serif;
     height: 64px;
     position: fixed;
     top: 0;
@@ -865,7 +864,7 @@ html, body {
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Playfair Display', Arial, sans-serif;
     transition: color 0.2s;
     position: relative;
 }
@@ -912,14 +911,14 @@ html, body {
 /* -------------------------------------------------- */
 /* Responsive Navbar Logo Title for Mobile */
 /* -------------------------------------------------- */
-@media (max-width: 480px) {
+@media (max-width: 430px) {
     .navbar-logo-title {
         flex-direction: row;
         align-items: center;
         width: 100%;
     }
 }
-.main-image {
+.logo-image {
     display: block;
     width: 100vw;
     max-width: 100%;
@@ -937,10 +936,6 @@ html, body {
     }
 }
 
-
-/* Google Fonts for Navbar */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
 /* Navbar Styles */
 .navbar {
     background: #000;
@@ -948,7 +943,7 @@ html, body {
     align-items: center;
     width: 100vw;
     padding: 10px 24px;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Playfair Display SC', Arial, sans-serif;
     height: 64px;
     position: fixed;
     top: 0;
@@ -1003,7 +998,7 @@ html, body {
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Playfair Display', Arial, sans-serif;
     transition: color 0.2s;
     position: relative;
 }
@@ -1082,7 +1077,7 @@ html, body {
     }
     
     .navbar-title {
-        font-size: 1.4rem;
+        font-size: 1rem;
         font-weight: 700;
         margin: 0;
         white-space: nowrap;
@@ -1161,6 +1156,7 @@ html, body {
         margin: 0 0 8px 0;
         text-align: center;
         line-height: 1.2;
+        text-shadow: 2px 0px 1px #545454;
     }
     
     .hero-desc {
@@ -1169,16 +1165,18 @@ html, body {
         text-align: center;
         line-height: 1.4;
         opacity: 0.95;
+            text-shadow: 2px 0px 1px #545454;
     }
     
     .latte-title {
         color: #d2b48c;
         display: block;
+            text-shadow: 2px 0px 1px #545454;
     }
 }
 
-/* Extra small screens (below 375px) */
-@media (max-width: 375px) {
+
+@media (max-width: 430px) {
     .navbar {
         padding: 6px 12px;
         height: 52px;
