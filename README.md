@@ -29,9 +29,8 @@ Update this section to match your exact structure. Example:
 
 ## 🛠️ Technologies Used
 
-- **Primary language:** CSS
-- **Other technologies:**  
-  *(Add other languages or frameworks, e.g., HTML, JavaScript, etc.)*
+- HTML
+- CSS
 
 ---
 
