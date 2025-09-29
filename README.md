@@ -17,12 +17,13 @@ Update this section to match your exact structure. Example:
 
 ```
 /
-├── assets/                # Images, fonts, etc.
-├── css/                   # Stylesheets
-├── js/                    # JavaScript files
-├── html/                 # HTML pages
-├── index.html             # Main landing page
-├── README.md              # Project documentation
+├── assets/                         # Images, fonts, etc.
+├── css/                            # Stylesheets
+├── js/                             # JavaScript files
+├── html/                           # HTML pages
+├── index.html                      # Main landing page
+├── Style Guide Documentaion.docx   # Documentation
+├── README.md                       # Project documentation
 ```
 
 ---
