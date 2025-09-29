@@ -7,8 +7,7 @@ This is a school project focused on foundational web development and system desi
 ## 🚀 Live Demo
 
 View the website:  
-**[Visit Website](#)**  
-*(Replace `#` with your actual website link once available)*
+[Web System & Technology](https://caelumregis.github.io/Web-System-and-Technology/)
 
 ---
 
@@ -45,13 +44,7 @@ Update this section to match your exact structure. Example:
     ```
 2. **Open index.html in your browser** (or describe your setup process).
 
----
 
-## 📝 Contributing
-
-Contributions are welcome! Please open an issue or pull request for suggestions or improvements.
-
----
 
 ## 👤 Author
 
@@ -59,4 +52,4 @@ Contributions are welcome! Please open an issue or pull request for suggestions 
 
 ---
 
-You can check out the other project here: [Web System & Technology](https://caelumregis.github.io/Web-System-and-Technology/)
+
