@@ -1,134 +1,203 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tipsy Bean</title>
-  <link rel="stylesheet" href="TipsyBean/css/style.css">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
   <!-- Normalize CSS -->
-  <link rel="stylesheet" href="../Web-System-and-Technology/TipsyBean/css/normalize.css">
+  <link rel="stylesheet" href="../Web-System-and-Technology/TipsyBean/css/normalize.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./TipsyBean/css/style.css" />
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
-  <!-- Navigation Bar -->
+  <!-- ===== NAVBAR ===== -->
   <header>
-    <!-- Navbar Start -->
-    <nav class="navbar" id="main-navbar">
-      <div class="navbar-logo-title">
-        <div class="navbar-logo" id="navbar-logo">
-          <img src="TipsyBean/assets/logo.jpeg" alt="Tipsy Bean Logo" class="logo-img" id="logo-img">
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top custom-navbar">
+      <div class="container-fluid px-4">
+        <!-- Logo + Brand -->
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold fs-3" href="#home">
+          <img src="TipsyBean/assets/logo.jpeg" alt="Tipsy Bean Logo" class="logo-img me-2" id="logo-img" />
+          Tipsy Bean
+        </a>
+
+        <!-- Navbar Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="#about-section">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="#menu-section">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white px-3" href="#order-section">Order</a>
+            </li>
+          </ul>
         </div>
-        <span class="navbar-title" id="navbar-title">Tipsy Bean</span>
       </div>
-      <ul class="navbar-links" id="navbar-links">
-        <li class="navbar-item"><a href="#home" class="navbar-link" id="nav-home">Home</a></li>
-        <li class="navbar-item"><a href="#about-section" class="navbar-link" id="nav-about">About</a></li>
-        <li class="navbar-item"><a href="#menu-section" class="navbar-link" id="nav-menu">Menu</a></li>
-        <li class="navbar-item"><a href="#order-section" class="navbar-link" id="nav-order">Order</a></li>
-      </ul>
     </nav>
-    <!-- Navbar End -->
   </header>
 
-  <main>
-    <!-- Hero Banner Section -->
-    <section id="home" class="hero" aria-label="Hero Banner">
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="mt-5 pt-4">
+
+    <!-- Hero Banner -->
+    <section id="home" class="hero text-center">
       <figure class="hero-image-wrapper">
-          <img src="TipsyBean/assets/CoffeeShop Interior.jpg" alt="Coffee Shop Interior" class="hero-image">
-        <figcaption class="hero-caption">
+        <img src="TipsyBean/assets/CoffeeShop Interior.jpg" alt="Coffee Shop Interior" class="hero-image img-fluid" />
+        <figcaption class="hero-caption text-end pe-4">
           <h1 class="hero-title">Welcome to <span class="latte-title">Tipsy Bean</span></h1>
           <p class="hero-desc">Your cozy corner for the finest coffee and pastries.</p>
         </figcaption>
       </figure>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about-section" id="about-section">
-      <div class="about-content">
-        <div class="about-image">
-          <img src="/Web-System-and-Technology/TipsyBean/assets/BlackLogo.png" alt="Tipsy Bean Logo" class="about-logo" />
-        </div>
-        <div class="about-text">
-          <h2 class="about-title">About Us</h2>
-          <p class="about-description">
-            In the heart of the city, Tipsy Bean began as a dream between friends
-            who believed every cup of coffee could spark a new story. From the
-            aroma of freshly ground beans to the laughter echoing off brick walls,
-            our shop became a haven for artists, thinkers, and wanderers alike
-            Here, every mug is a chapter, every pastry a plot twist, and every guest a
-            cherished character in our ongoing tale. Welcome to Tipsy Bean—where
-            your story is always brewing.
-          </p>
+    <!-- About Us -->
+    <section id="about-section" class="about-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Image -->
+          <div class="col-md-5 text-center mb-4 mb-md-0">
+            <img src="TipsyBean/assets/logo.jpeg" alt="Tipsy Bean Logo" class="about-logo img-fluid rounded-4 shadow" />
+          </div>
+          <!-- Text -->
+          <div class="col-md-7 text-center text-md-start">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-description">
+              In the heart of the city, Tipsy Bean began as a dream between friends
+              who believed every cup of coffee could spark a new story. From the
+              aroma of freshly ground beans to the laughter echoing off brick walls,
+              our shop became a haven for artists, thinkers, and wanderers alike.
+              Here, every mug is a chapter, every pastry a plot twist, and every guest
+              a cherished character in our ongoing tale. Welcome to Tipsy Bean — where
+              your story is always brewing.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location-section" id="find-us">
-      <div class="location-content">
-        <div class="location-pin-wrapper">
-          <img src="TipsyBean/assets/pin.png" alt="Location Pin" class="location-pin" />
-        </div>
+    <!-- Location -->
+    <section id="find-us" class="location-section py-5 text-center">
+      <div class="container">
+        <img src="TipsyBean/assets/pin.png" alt="Location Pin" class="location-pin mb-3" />
         <h2 class="location-title">Find your way to us</h2>
-        <p class="location-description">
-          Looking for your next favorite coffee spot? Use the map below to find our location
+        <p class="location-description mb-3">
+          Looking for your next favorite coffee spot? Use the map below to find our location.
         </p>
-        <a href="https://bit.ly/3I8A1pq" class="google-map-btn" target="_blank" rel="noopener">Google Maps</a>
+        <a href="https://bit.ly/3I8A1pq" class="google-map-btn btn text-white px-4 py-2 rounded-pill" target="_blank" rel="noopener">
+          Google Maps
+        </a>
       </div>
     </section>
 
-    <!-- Menu Section -->
-    <section class="menu-section" id="menu-section">
-      <div class="menu-content">
-        <h2 class="menu-title">Menu</h2>
-        <div class="menu-items">
-          <div class="menu-card beverages">
-            <img src="TipsyBean/assets/Coffee.png" alt="Beverages" class="menu-img" />
-            <h3 class="menu-item-title">Beverages</h3>
+    <!-- Menu -->
+    <section id="menu-section" class="menu-section py-5 text-center">
+      <div class="container">
+        <h2 class="menu-title mb-4">Menu</h2>
+        <div class="row justify-content-center g-4">
+          <div class="col-md-4 col-sm-6">
+            <div class="menu-card p-3 shadow-sm rounded-4">
+              <img src="TipsyBean/assets/Coffee.png" alt="Beverages" class="menu-img img-fluid rounded-3" />
+              <h3 class="menu-item-title mt-3">Beverages</h3>
+            </div>
           </div>
-          <div class="menu-card food">
-            <img src="TipsyBean/assets/Pasta.png" alt="Food" class="menu-img" />
-            <h3 class="menu-item-title">Food</h3>
+          <div class="col-md-4 col-sm-6">
+            <div class="menu-card p-3 shadow-sm rounded-4">
+              <img src="TipsyBean/assets/Pasta.png" alt="Food" class="menu-img img-fluid rounded-3" />
+              <h3 class="menu-item-title mt-3">Food</h3>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Order Section -->
-    <section class="order-section" id="order-section">
-      <div class="order-content">
-        <div class="order-text">
-          <h2 class="order-title">Bringing Goodness to You</h2>
-          <p class="order-description">Order from our delivery partners and have it delivered right to your doorstep.</p>
-          <div class="order-buttons">
-            <a href="https://www.foodpanda.ph/" class="order-btn foodpanda" target="_blank" rel="noopener">Order via Foodpanda</a>
-            <a href="https://www.grab.com/ph/food/" class="order-btn grabfood" target="_blank" rel="noopener">Order via GrabFood</a>
+    <!-- Order -->
+    <section id="order-section" class="order-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Text -->
+          <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+            <h2 class="order-title">Bringing Goodness to You</h2>
+            <p class="order-description">
+              Order from our delivery partners and have it delivered right to your doorstep.
+            </p>
+            <div class="order-buttons d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+              <a href="https://www.foodpanda.ph/" class="order-btn foodpanda text-white rounded-pill px-4 py-2" target="_blank" rel="noopener">
+                Order via Foodpanda
+              </a>
+              <a href="https://www.grab.com/ph/food/" class="order-btn grabfood text-white rounded-pill px-4 py-2" target="_blank" rel="noopener">
+                Order via GrabFood
+              </a>
+            </div>
+          </div>
+          <!-- Image -->
+          <div class="col-md-6 text-center">
+            <img src="TipsyBean/assets/DeliveryIcon.png" alt="Delivery Icon" class="delivery-img img-fluid" />
           </div>
         </div>
-        <div class="order-image">
-          <img src="TipsyBean/assets/DeliveryIcon.png" alt="Delivery Icon" class="delivery-img" />
-        </div>
       </div>
-    </section>  
-        <!--end of main section-->
+    </section>
   </main>
-      <!-- Footer Section -->
-    <footer class="footer-section">
-      <div class="footer-content">
-        <div class="footer-text">&copy; 2025 Tipsy Bean. All rights reserved.</div>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/TipsyBeanMamatid" target="_blank" rel="noopener" class="footer-icon-link">
-            <img src="TipsyBean/assets/FacebookIcon.png" alt="Facebook" class="footer-icon" />
-          </a>
-          <a href="https://www.instagram.com/tipsybeancabuyao/" target="_blank" rel="noopener" class="footer-icon-link">
-            <img src="TipsyBean/assets/InstagramIcon.png" alt="Instagram" class="footer-icon" />
-          </a>
-        </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-section py-3">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+      <div class="footer-text text-white mb-2 mb-md-0">
+        &copy; 2025 Tipsy Bean. All rights reserved.
       </div>
-    </footer>
+      <div class="footer-social d-flex gap-3 justify-content-center">
+        <a href="https://www.facebook.com/TipsyBeanMamatid" target="_blank" rel="noopener" class="footer-icon-link">
+          <img src="TipsyBean/assets/FacebookIcon.png" alt="Facebook" class="footer-icon" />
+        </a>
+        <a href="https://www.instagram.com/tipsybeancabuyao/" target="_blank" rel="noopener" class="footer-icon-link">
+          <img src="TipsyBean/assets/InstagramIcon.png" alt="Instagram" class="footer-icon" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Custom JS -->
+  <script src="./TipsyBean/script/script.js"></script>
 </body>
 </html>
