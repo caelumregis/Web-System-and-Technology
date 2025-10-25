@@ -222,3 +222,318 @@ footerIcons.forEach(icon => {
     );
   });
 });
+
+// Utility function for error handling
+function handleError(error, context) {
+  console.error(`Error in ${context}:`, error);
+  
+  // Create and show a Bootstrap toast for user feedback
+  const toastContainer = document.getElementById('toastContainer');
+  if (toastContainer) {
+    const toast = document.createElement('div');
+    toast.className = 'toast align-items-center text-white bg-danger border-0';
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    toast.setAttribute('aria-atomic', 'true');
+    
+    toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">
+          An error occurred. Please try again later.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+    
+    toastContainer.appendChild(toast);
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+    
+    // Remove toast after it's hidden
+    toast.addEventListener('hidden.bs.toast', () => {
+      toast.remove();
+    });
+  }
+}
+
+// Initialize all components when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    initializeNavbar();
+    initializeModals();
+    initializeSmoothScroll();
+    initializeFormValidation();
+    initializeTooltips();
+    initializeImageLoading();
+  } catch (error) {
+    handleError(error, 'DOMContentLoaded');
+  }
+});
+
+// Navbar functionality
+function initializeNavbar() {
+  try {
+    const navbar = document.querySelector('.navbar');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.getElementById('navbarNav');
+    
+    if (!navbar) {
+      throw new Error('Navbar element not found');
+    }
+
+    // Close navbar when clicking on a nav link (mobile)
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse && window.innerWidth < 992) {
+          bsCollapse.hide();
+        }
+      });
+    });
+
+    // Add active state to nav links based on scroll position
+    window.addEventListener('scroll', function() {
+      try {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 100;
+          const sectionId = section.getAttribute('id');
+          const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+          if (navLink) {
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              navLink.classList.add('active');
+            } else {
+              navLink.classList.remove('active');
+            }
+          }
+        });
+
+        // Change navbar background on scroll
+        if (scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      } catch (error) {
+        handleError(error, 'scroll event');
+      }
+    });
+
+    // Keyboard navigation for navbar toggler
+    if (navbarToggler) {
+      navbarToggler.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    }
+  } catch (error) {
+    handleError(error, 'initializeNavbar');
+  }
+}
+
+// Modal functionality
+function initializeModals() {
+  try {
+    const modals = document.querySelectorAll('.modal');
+    
+    modals.forEach(modal => {
+      // Event listeners for modal lifecycle
+      modal.addEventListener('show.bs.modal', function (event) {
+        console.log('Modal opening:', modal.id);
+      });
+
+      modal.addEventListener('shown.bs.modal', function (event) {
+        // Focus on first focusable element when modal opens
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
+      });
+
+      modal.addEventListener('hidden.bs.modal', function (event) {
+        console.log('Modal closed:', modal.id);
+      });
+    });
+
+    // Error handling for modal triggers
+    const modalTriggers = document.querySelectorAll('[data-bs-toggle="modal"]');
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function(e) {
+        try {
+          const targetModal = document.querySelector(this.getAttribute('data-bs-target'));
+          if (!targetModal) {
+            throw new Error(`Modal target not found: ${this.getAttribute('data-bs-target')}`);
+          }
+        } catch (error) {
+          e.preventDefault();
+          handleError(error, 'modal trigger');
+        }
+      });
+    });
+  } catch (error) {
+    handleError(error, 'initializeModals');
+  }
+}
+
+// Smooth scroll functionality
+function initializeSmoothScroll() {
+  try {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        try {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (!targetElement) {
+            throw new Error(`Target element not found: ${targetId}`);
+          }
+
+          e.preventDefault();
+          
+          const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+          const targetPosition = targetElement.offsetTop - navbarHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        } catch (error) {
+          handleError(error, 'smooth scroll');
+        }
+      });
+    });
+  } catch (error) {
+    handleError(error, 'initializeSmoothScroll');
+  }
+}
+
+// Form validation (if forms are added later)
+function initializeFormValidation() {
+  try {
+    const forms = document.querySelectorAll('.needs-validation');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', function(event) {
+        try {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        } catch (error) {
+          event.preventDefault();
+          handleError(error, 'form validation');
+        }
+      }, false);
+    });
+  } catch (error) {
+    handleError(error, 'initializeFormValidation');
+  }
+}
+
+// Initialize Bootstrap tooltips
+function initializeTooltips() {
+  try {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => {
+      try {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      } catch (error) {
+        handleError(error, 'tooltip initialization');
+        return null;
+      }
+    });
+  } catch (error) {
+    handleError(error, 'initializeTooltips');
+  }
+}
+
+// Image loading error handling
+function initializeImageLoading() {
+  try {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+      // Add loading state
+      img.classList.add('loading');
+      
+      img.addEventListener('load', function() {
+        this.classList.remove('loading');
+        this.classList.add('loaded');
+      });
+
+      img.addEventListener('error', function() {
+        this.classList.remove('loading');
+        this.classList.add('error');
+        console.error(`Failed to load image: ${this.src}`);
+        
+        // Optionally set a placeholder image
+        // this.src = 'path/to/placeholder.jpg';
+        this.alt = 'Image failed to load';
+      });
+
+      // Check if image is already loaded (cached)
+      if (img.complete) {
+        img.classList.remove('loading');
+        img.classList.add('loaded');
+      }
+    });
+  } catch (error) {
+    handleError(error, 'initializeImageLoading');
+  }
+}
+
+// External link handling
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    try {
+      // Verify the link has a valid href
+      if (!this.href || this.href === '#') {
+        e.preventDefault();
+        throw new Error('Invalid external link');
+      }
+    } catch (error) {
+      handleError(error, 'external link');
+    }
+  });
+});
+
+// Keyboard accessibility improvements
+document.addEventListener('keydown', function(e) {
+  // ESC key closes modals
+  if (e.key === 'Escape') {
+    const openModals = document.querySelectorAll('.modal.show');
+    openModals.forEach(modal => {
+      const bsModal = bootstrap.Modal.getInstance(modal);
+      if (bsModal) {
+        bsModal.hide();
+      }
+    });
+  }
+});
+
+// Performance monitoring (optional)
+if ('PerformanceObserver' in window) {
+  try {
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.entryType === 'navigation') {
+          console.log('Page load time:', entry.loadEventEnd - entry.fetchStart, 'ms');
+        }
+      }
+    });
+    observer.observe({ entryTypes: ['navigation'] });
+  } catch (error) {
+    console.error('Performance monitoring failed:', error);
+  }
+}
