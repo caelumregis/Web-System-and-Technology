@@ -78,6 +78,7 @@ This project focuses on:
 | Member | Role | Key Contributions |
 |---------|------|------------------|
 | [caelumregis](https://github.com/caelumregis) | Developer | Front-end design, and coding |
+| [Kyliejais](https://github.com/Kyliejais) | Front-end Designer | UI/UX design, and documentation |
 
 
 ---
