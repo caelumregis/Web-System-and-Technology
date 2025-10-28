@@ -1,12 +1,6 @@
 /* ===============================
-   GLOBAL STYLES
+   GLOBAL STYLES & TYPOGRAPHY
 ================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -17,7 +11,6 @@ body {
   background-color: #fffaf5;
 }
 
-/* Typography */
 h1, h2, h3 {
   font-family: "Playfair Display", serif;
   color: #4a2c1d;
@@ -26,25 +19,19 @@ h1, h2, h3 {
 p {
   font-family: "Raleway", sans-serif;
   color: #5a4633;
-  line-height: 1.6;
 }
 
-/* Utility classes */
-.text-brown {
-  color: #6f4e37;
-}
-
-.bg-brown {
-  background-color: #6f4e37;
-}
+/* Custom Brand Colors */
+.text-brown { color: #6f4e37; }
+.bg-brown { background-color: #6f4e37; }
+.latte-title { color: #c59401; }
 
 /* ===============================
-   NAVBAR
+   HEADER & NAVIGATION
 ================================== */
 .custom-navbar {
   background-color: #000;
   border-bottom: 2px solid #a67c52;
-  padding: 1rem 2rem;
 }
 
 .navbar-brand {
@@ -97,10 +84,6 @@ p {
   color: #fff;
 }
 
-.latte-title {
-  color: #c59401;
-}
-
 .hero-desc {
   font-size: 1.2rem;
   font-weight: 400;
@@ -108,28 +91,22 @@ p {
 }
 
 /* ===============================
-   ABOUT SECTION
+   CONTENT SECTIONS
 ================================== */
-.about-section {
+.about-section, .menu-section {
   background-color: #fff;
 }
 
-.about-title {
-  color: #6f4e37;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.location-section, .order-section {
+  background-color: #fffaf5;
 }
 
-.about-description {
-  font-size: 1rem;
-  line-height: 1.8;
+.about-title, .location-title, .menu-title, .order-title {
+  color: #6f4e37;
 }
 
 .about-logo {
   max-width: 280px;
-  border: none;
-  background: none !important;
-  box-shadow: none !important;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -141,56 +118,15 @@ p {
 /* ===============================
    LOCATION SECTION
 ================================== */
-.location-section {
-  background-color: #fffaf5;
-}
-
-.location-title {
-  color: #6f4e37;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.location-description {
-  color: #5a4633;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
 .location-pin {
   width: 60px;
   animation: bounce 2s infinite ease-in-out;
 }
 
-/* Location button */
-.google-map-btn {
-  background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%);
-  border: none;
-  color: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.google-map-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #c59401;
-}
-
 /* ===============================
    MENU SECTION
 ================================== */
-.menu-section {
-  background-color: #fff;
-}
-
-.menu-title {
-  color: #6f4e37;
-  font-size: 2.2rem;
-}
-
 .menu-card {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -205,56 +141,52 @@ p {
 
 .menu-item-title {
   color: #4a2c1d;
-  font-size: 1.2rem;
-  margin-top: 0.8rem;
 }
 
 /* ===============================
    ORDER SECTION
 ================================== */
-.order-section {
-  background-color: #fffaf5;
+.delivery-img {
+  max-width: 300px;
+}
+/* ===============================
+   BUTTONS & INTERACTIVE ELEMENTS
+================================== */
+.google-map-btn {
+  background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%) !important;
+  border: none !important;
+  color: white !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.order-title {
-  color: #6f4e37;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+.google-map-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #c59401;
+  color: white !important;
 }
 
-.order-description {
-  font-size: 1rem;
-  color: #5a4633;
-  margin-bottom: 1.5rem;
-}
-
-/* Buttons */
 .order-btn {
-  border: none;
+  border: none !important;
   text-decoration: none !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .order-btn.foodpanda {
-  background: linear-gradient(90deg, #ff5ca8 0%, #ff2e93 100%);
+  background: linear-gradient(90deg, #ff5ca8 0%, #ff2e93 100%) !important;
 }
 
 .order-btn.grabfood {
-  background: linear-gradient(90deg, #00c853 0%, #43ea7a 100%);
+  background: linear-gradient(90deg, #00c853 0%, #43ea7a 100%) !important;
 }
 
 .order-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-}
-
-.delivery-img {
-  max-width: 300px;
+  color: white !important;
 }
 
 /* ===============================
-   FOOTER SECTION
+   FOOTER
 ================================== */
 .footer-section {
   background-color: #000;
@@ -262,7 +194,6 @@ p {
 }
 
 .footer-text {
-  font-size: 0.9rem;
   color: #f0e4d7;
 }
 
@@ -282,36 +213,71 @@ p {
    ANIMATIONS
 ================================== */
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===============================
+   RESPONSIVE OVERRIDES
+================================== */
+@media (max-width: 768px) {
+  .hero-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
   }
-  50% {
-    transform: translateY(-10px);
+  
+  .hero-title {
+    font-size: 2rem;
   }
 }
 
 /* ===============================
-   RESPONSIVE ADJUSTMENTS
+   ACCESSIBILITY ENHANCEMENTS
 ================================== */
-@media (max-width: 768px) {
-  .hero-caption {
-    text-align: center;
-    right: 0;
-  }
+/* Enhanced keyboard navigation styles */
+.keyboard-navigation *:focus {
+  outline: 3px solid #C59401 !important;
+  outline-offset: 2px !important;
+}
 
-  .hero-title {
-    font-size: 2rem;
-  }
+/* Skip link styles */
+.skip-link:focus {
+  top: 10px !important;
+}
 
-  .about-description {
-    text-align: center;
-  }
+/* Smooth transitions for interactive elements */
+.menu-card,
+.order-btn,
+.google-map-btn,
+.footer-icon-link {
+  transition: all 0.3s ease;
+}
 
-  .order-title {
-    text-align: center;
+/* Loading spinner animation */
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  .footer-section {
-    text-align: center;
-  }
+.spinner-border {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: text-bottom;
+  border: 0.125em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+.spinner-border-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-width: 0.125em;
 }
