@@ -1,4 +1,26 @@
 /* ===============================
+   CSS CUSTOM PROPERTIES
+================================== */
+:root {
+  --tipsy-brown: #6f4e37;
+  --tipsy-gold: #c59401;
+  --tipsy-accent: #a67c52;
+  --tipsy-cream: #fffaf5;
+  --tipsy-text: #3a2a1a;
+  --tipsy-dark-brown: #4a2c1d;
+  --tipsy-medium-brown: #5a4633;
+  --tipsy-light-text: #f3e8dc;
+  --tipsy-footer-text: #f0e4d7;
+  --tipsy-black: #000;
+  --tipsy-white: #fff;
+  
+  /* Transition timing */
+  --transition-standard: all 0.3s ease;
+  --transition-slow: all 0.9s ease-out;
+  --transition-fast: all 0.15s ease;
+}
+
+/* ===============================
    GLOBAL STYLES & TYPOGRAPHY
 ================================== */
 html {
@@ -7,31 +29,32 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #3a2a1a;
-  background-color: #fffaf5;
+  color: var(--tipsy-text);
+  background-color: var(--tipsy-cream);
 }
 
 h1, h2, h3 {
   font-family: "Playfair Display", serif;
-  color: #4a2c1d;
+  color: var(--tipsy-dark-brown);
 }
 
 p {
   font-family: "Raleway", sans-serif;
-  color: #5a4633;
+  color: var(--tipsy-medium-brown);
 }
 
 /* Custom Brand Colors */
-.text-brown { color: #6f4e37; }
-.bg-brown { background-color: #6f4e37; }
-.latte-title { color: #c59401; }
+.text-brown { color: var(--tipsy-brown); }
+.bg-brown { background-color: var(--tipsy-brown); }
+.latte-title { color: var(--tipsy-gold); }
 
 /* ===============================
    HEADER & NAVIGATION
 ================================== */
 .custom-navbar {
-  background-color: #000;
-  border-bottom: 2px solid #a67c52;
+  background-color: var(--tipsy-black);
+  border-bottom: 2px solid var(--tipsy-accent);
+  transition: var(--transition-standard);
 }
 
 .navbar-brand {
@@ -46,13 +69,62 @@ p {
   border-radius: 50%;
 }
 
+/* Consolidated transitions for interactive elements */
+.nav-link,
+.menu-card,
+.about-logo,
+.footer-icon,
+.order-btn,
+.google-map-btn {
+  transition: var(--transition-standard);
+}
+
 .nav-link {
   font-weight: 500;
-  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #c59401 !important;
+  color: var(--tipsy-gold) !important;
+}
+
+/* Mobile navbar improvements */
+.navbar-toggler {
+  border: 2px solid var(--tipsy-accent);
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(197, 148, 1, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile dropdown menu styling */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 8px;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--tipsy-accent);
+  }
+  
+  .navbar-nav {
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 6px;
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    background-color: rgba(197, 148, 1, 0.1);
+    color: var(--tipsy-gold) !important;
+  }
 }
 
 /* ===============================
@@ -75,40 +147,40 @@ p {
   top: 50%;
   right: 8%;
   transform: translateY(-50%);
-  color: #fff;
+  color: var(--tipsy-white);
   text-align: right;
+  max-width: 500px;
 }
 
 .hero-title {
   font-size: 3rem;
-  color: #fff;
+  color: var(--tipsy-white);
 }
 
 .hero-desc {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #f3e8dc;
+  color: var(--tipsy-light-text);
 }
 
 /* ===============================
    CONTENT SECTIONS
 ================================== */
 .about-section, .menu-section {
-  background-color: #fff;
+  background-color: var(--tipsy-white);
 }
 
 .location-section, .order-section {
-  background-color: #fffaf5;
+  background-color: var(--tipsy-cream);
 }
 
 .about-title, .location-title, .menu-title, .order-title {
-  color: #6f4e37;
+  color: var(--tipsy-brown);
 }
 
 .about-logo {
   max-width: 280px;
   border-radius: 50%;
-  transition: transform 0.3s ease;
 }
 
 .about-logo:hover {
@@ -126,10 +198,6 @@ p {
 /* ===============================
    MENU SECTION
 ================================== */
-.menu-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .menu-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(111, 78, 55, 0.2);
@@ -140,7 +208,7 @@ p {
 }
 
 .menu-item-title {
-  color: #4a2c1d;
+  color: var(--tipsy-dark-brown);
 }
 
 /* ===============================
@@ -153,22 +221,20 @@ p {
    BUTTONS & INTERACTIVE ELEMENTS
 ================================== */
 .google-map-btn {
-  background: linear-gradient(90deg, #a67c52 0%, #6f4e37 100%) !important;
+  background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%) !important;
   border: none !important;
-  color: white !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--tipsy-white) !important;
 }
 
 .google-map-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px #c59401;
-  color: white !important;
+  box-shadow: 0 0 10px var(--tipsy-gold);
+  color: var(--tipsy-white) !important;
 }
 
 .order-btn {
   border: none !important;
   text-decoration: none !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .order-btn.foodpanda {
@@ -182,31 +248,30 @@ p {
 .order-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  color: white !important;
+  color: var(--tipsy-white) !important;
 }
 
 /* ===============================
    FOOTER
 ================================== */
 .footer-section {
-  background-color: #000;
-  border-top: 2px solid #a67c52;
+  background-color: var(--tipsy-black);
+  border-top: 2px solid var(--tipsy-accent);
 }
 
 .footer-text {
-  color: #f0e4d7;
+  color: var(--tipsy-footer-text);
 }
 
 .footer-icon {
   width: 28px;
   height: 28px;
   filter: brightness(0) invert(1);
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer-icon:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 8px #c59401);
+  filter: drop-shadow(0 0 8px var(--tipsy-gold));
 }
 
 /* ===============================
@@ -222,17 +287,38 @@ p {
 ================================== */
 @media (max-width: 768px) {
   .hero-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    width: 85% !important;
+    max-width: 350px !important;
+    padding: 1rem;
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 2rem !important;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.4;
+  }
+}
+
+/* For iPhone 14 Pro Max and similar large phones */
+@media (max-width: 430px) {
+  .hero-caption {
+    width: 90% !important;
+    max-width: 380px !important;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem !important;
   }
 }
 
