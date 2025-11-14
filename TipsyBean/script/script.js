@@ -75,13 +75,47 @@ navLinks.forEach(link => {
 // Bounce animation for location pin
 function animateLocationPin() {
   const locationPin = document.querySelector('.location-pin');
+  console.log('Looking for location pin...', locationPin); // Debug log
+  
   if (locationPin) {
-    let bounceUp = true;
-    setInterval(() => {
-      locationPin.style.transform = bounceUp ? 'translateY(-10px)' : 'translateY(0)';
-      locationPin.style.transition = 'transform 0.6s ease-in-out';
-      bounceUp = !bounceUp;
-    }, 1000);
+    console.log('Found location pin! Starting animation...'); // Debug log
+    
+    // Simple direct approach - add CSS animation directly
+    locationPin.style.cssText += `
+      animation: bounce 2s infinite;
+      animation-timing-function: ease-in-out;
+    `;
+    
+    // Create the keyframes if they don't exist
+    if (!document.getElementById('bounce-keyframes')) {
+      const style = document.createElement('style');
+      style.id = 'bounce-keyframes';
+      style.textContent = `
+        @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-20px);
+          }
+          60% {
+            transform: translateY(-10px);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      console.log('Added bounce keyframes');
+    }
+    
+    console.log('Pin animation should be running now');
+  } else {
+    console.error('Location pin element not found!');
+    // Let's try alternative selectors
+    const allImages = document.querySelectorAll('img');
+    console.log('All images on page:', allImages.length);
+    allImages.forEach((img, index) => {
+      console.log(`Image ${index}:`, img.src, img.className);
+    });
   }
 }
 
@@ -122,11 +156,20 @@ function addBubblyBorderAnimation() {
 function initializeAnimations() {
   // Start animations after a brief delay to ensure smooth loading
   setTimeout(() => {
+    console.log('Initializing animations...'); // Debug log
     animateLocationPin();
     animateDeliveryPartners();
     addBubblyBorderAnimation();
   }, 500);
 }
+
+// Also try to initialize the pin animation immediately when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, trying pin animation...'); // Debug log
+  setTimeout(() => {
+    animateLocationPin();
+  }, 100);
+});
 
 // ===== Hero Banner Animation =====
 const heroCaption = document.querySelector(".hero-caption");
