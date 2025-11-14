@@ -69,6 +69,65 @@ navLinks.forEach(link => {
   });
 });
 
+// ===== ANIMATION FUNCTIONS =====
+// All animations moved from CSS to JavaScript for better performance and consistency
+
+// Bounce animation for location pin
+function animateLocationPin() {
+  const locationPin = document.querySelector('.location-pin');
+  if (locationPin) {
+    let bounceUp = true;
+    setInterval(() => {
+      locationPin.style.transform = bounceUp ? 'translateY(-10px)' : 'translateY(0)';
+      locationPin.style.transition = 'transform 0.6s ease-in-out';
+      bounceUp = !bounceUp;
+    }, 1000);
+  }
+}
+
+// Float animation for delivery partner images
+function animateDeliveryPartners() {
+  const deliveryImages = document.querySelectorAll('.delivery-partner-img');
+  deliveryImages.forEach((img, index) => {
+    let floatUp = true;
+    // Stagger the animation start times
+    setTimeout(() => {
+      setInterval(() => {
+        img.style.transform = floatUp ? 'translateY(-8px)' : 'translateY(0)';
+        img.style.transition = 'transform 1.5s ease-in-out';
+        floatUp = !floatUp;
+      }, 3000);
+    }, index * 1500);
+  });
+}
+
+// Bubbly border animation for delivery partner links
+function addBubblyBorderAnimation() {
+  const deliveryLinks = document.querySelectorAll('.delivery-partner-link');
+  
+  deliveryLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      const beforeElement = window.getComputedStyle(link, '::before');
+      // Trigger CSS transition for bubbly effect
+      link.style.setProperty('--bubbly-active', '1');
+    });
+    
+    link.addEventListener('mouseleave', () => {
+      link.style.setProperty('--bubbly-active', '0');
+    });
+  });
+}
+
+// Initialize all animations when DOM is loaded
+function initializeAnimations() {
+  // Start animations after a brief delay to ensure smooth loading
+  setTimeout(() => {
+    animateLocationPin();
+    animateDeliveryPartners();
+    addBubblyBorderAnimation();
+  }, 500);
+}
+
 // ===== Hero Banner Animation =====
 const heroCaption = document.querySelector(".hero-caption");
 const heroImage = document.querySelector(".hero-image");
@@ -545,6 +604,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('IntersectionObserver' in window) {
     setupIntersectionObserver();
   }
+  
+  // Initialize all animations
+  initializeAnimations();
   
   // Add keyboard navigation announcement
   document.addEventListener('keydown', (e) => {

@@ -74,8 +74,8 @@ p {
 .menu-card,
 .about-logo,
 .footer-icon,
-.order-btn,
-.google-map-btn {
+.google-map-btn,
+.delivery-partner-img {
   transition: var(--transition-standard);
 }
 
@@ -101,29 +101,45 @@ p {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Mobile dropdown menu styling */
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: rgba(0, 0, 0, 0.95);
-    border-radius: 8px;
-    margin-top: 1rem;
+/* Mobile dropdown menu styling - removed black background */
+.navbar-nav {
+  gap: 0.5rem;
+}
+
+.nav-link {
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: rgba(197, 148, 1, 0.1);
+  color: var(--tipsy-gold) !important;
+}
+
+/* Essential mobile hero caption positioning - using one minimal media query */
+@media (max-width: 768px) {
+  .hero-caption {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    width: 85% !important;
+    max-width: 350px !important;
     padding: 1rem;
-    border: 1px solid var(--tipsy-accent);
   }
   
-  .navbar-nav {
-    gap: 0.5rem;
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
   
-  .nav-link {
-    padding: 0.75rem 1rem !important;
-    border-radius: 6px;
-  }
-  
-  .nav-link:hover,
-  .nav-link:focus {
-    background-color: rgba(197, 148, 1, 0.1);
-    color: var(--tipsy-gold) !important;
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.4;
   }
 }
 
@@ -192,7 +208,6 @@ p {
 ================================== */
 .location-pin {
   width: 60px;
-  animation: bounce 2s infinite ease-in-out;
 }
 
 /* ===============================
@@ -212,11 +227,87 @@ p {
 }
 
 /* ===============================
+/* ===============================
    ORDER SECTION
 ================================== */
-.delivery-img {
-  max-width: 300px;
+/* Delivery Partner Images */
+.delivery-partners {
+  margin-top: 0;
+  padding: 15px 0; /* Add padding to prevent cutting off floating elements */
 }
+
+/* ===============================
+   ORDER SECTION - DELIVERY PARTNERS
+================================== */
+.delivery-partners {
+  padding: 15px 0;
+}
+
+.delivery-partner-link {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  position: relative;
+  transition: var(--transition-standard);
+}
+
+.delivery-partner-img {
+  width: 120px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  transition: var(--transition-standard);
+}
+
+.delivery-partner-link:hover .delivery-partner-img {
+  transform: scale(1.05);
+}
+
+.delivery-partner-link:focus {
+  outline: 3px solid var(--tipsy-gold);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Delivery partner border effects */
+.delivery-partner-link:first-child::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: linear-gradient(45deg, #ff2e93, #ff5ca8, #ff2e93);
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0;
+  transition: var(--transition-standard);
+  z-index: -1;
+}
+
+.delivery-partner-link:first-child:hover::before {
+  opacity: 0.8;
+  border-radius: 20% 50% 20% 50%;
+}
+
+.delivery-partner-link:last-child::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: linear-gradient(45deg, #00c853, #43ea7a, #00c853);
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0;
+  transition: var(--transition-standard);
+  z-index: -1;
+}
+
+.delivery-partner-link:last-child:hover::before {
+  opacity: 0.8;
+  border-radius: 20% 50% 20% 50%;
+}
+
 /* ===============================
    BUTTONS & INTERACTIVE ELEMENTS
 ================================== */
@@ -229,25 +320,6 @@ p {
 .google-map-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px var(--tipsy-gold);
-  color: var(--tipsy-white) !important;
-}
-
-.order-btn {
-  border: none !important;
-  text-decoration: none !important;
-}
-
-.order-btn.foodpanda {
-  background: linear-gradient(90deg, #ff5ca8 0%, #ff2e93 100%) !important;
-}
-
-.order-btn.grabfood {
-  background: linear-gradient(90deg, #00c853 0%, #43ea7a 100%) !important;
-}
-
-.order-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   color: var(--tipsy-white) !important;
 }
 
@@ -275,54 +347,6 @@ p {
 }
 
 /* ===============================
-   ANIMATIONS
-================================== */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* ===============================
-   RESPONSIVE OVERRIDES
-================================== */
-@media (max-width: 768px) {
-  .hero-caption {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translate(-50%, -50%) !important;
-    text-align: center !important;
-    width: 85% !important;
-    max-width: 350px !important;
-    padding: 1rem;
-  }
-  
-  .hero-title {
-    font-size: 2rem !important;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hero-desc {
-    font-size: 1rem !important;
-    line-height: 1.4;
-  }
-}
-
-/* For iPhone 14 Pro Max and similar large phones */
-@media (max-width: 430px) {
-  .hero-caption {
-    width: 90% !important;
-    max-width: 380px !important;
-  }
-  
-  .hero-title {
-    font-size: 1.8rem !important;
-  }
-}
-
-/* ===============================
    ACCESSIBILITY ENHANCEMENTS
 ================================== */
 /* Enhanced keyboard navigation styles */
@@ -342,28 +366,4 @@ p {
 .google-map-btn,
 .footer-icon-link {
   transition: all 0.3s ease;
-}
-
-/* Loading spinner animation */
-@keyframes spinner-border {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.spinner-border {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  vertical-align: text-bottom;
-  border: 0.125em solid currentColor;
-  border-right-color: transparent;
-  border-radius: 50%;
-  animation: spinner-border 0.75s linear infinite;
-}
-
-.spinner-border-sm {
-  width: 0.875rem;
-  height: 0.875rem;
-  border-width: 0.125em;
 }
