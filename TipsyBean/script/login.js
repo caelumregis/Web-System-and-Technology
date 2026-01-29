@@ -134,18 +134,15 @@ class LoginManager {
 
   /**
    * Perform login
-   * In production, this should call a backend API
+   * Authenticates against registered users in localStorage
    */
   performLogin(formData) {
-    // Simulated user database (for demo purposes only)
-    const validUsers = [
-      { email: 'user@example.com', password: 'password123' },
-      { email: 'test@tipsy.com', password: 'test1234' }
-    ];
+    // Get registered users from localStorage
+    const users = JSON.parse(localStorage.getItem('tipsybeanUsers') || '[]');
 
     // Find matching user
-    const user = validUsers.find(
-      u => u.email === formData.email && u.password === formData.password
+    const user = users.find(
+      u => u.email.toLowerCase() === formData.email.toLowerCase() && u.password === formData.password
     );
 
     if (!user) {
@@ -162,7 +159,7 @@ class LoginManager {
 
     // Simulate successful login
     this.showSuccess();
-    this.saveLoginSession(formData.email);
+    this.saveLoginSession(formData.email, user.firstName, user.lastName);
 
     // Redirect after 2 seconds to home page
     setTimeout(() => {
@@ -173,8 +170,8 @@ class LoginManager {
   /**
    * Save login session using SessionManager
    */
-  saveLoginSession(email) {
-    sessionManager.createSession(email);
+  saveLoginSession(email, firstName, lastName) {
+    sessionManager.createSession(email, firstName, lastName);
   }
 
   /**
