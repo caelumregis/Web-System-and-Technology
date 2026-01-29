@@ -177,6 +177,11 @@ class CartManager {
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
     this.updateCartUI();
     this.renderCartItems();
+    
+    // Dispatch custom event to notify menu items
+    const event = new CustomEvent('cartItemRemoved', { detail: { itemId: itemId } });
+    document.dispatchEvent(event);
+    
     return true;
   }
 

@@ -57,6 +57,15 @@ class MenuCartManager {
         this.handleRemoveFromCart(menuItem);
       }
     });
+
+    // Listen for cart item removal events from cart sidebar
+    document.addEventListener('cartItemRemoved', (e) => {
+      const itemId = e.detail.itemId;
+      const menuItem = document.querySelector(`[data-item-id="${itemId}"]`);
+      if (menuItem) {
+        this.showAddToCartButton(menuItem);
+      }
+    });
   }
 
   /**
