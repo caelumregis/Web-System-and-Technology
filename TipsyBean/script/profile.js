@@ -37,6 +37,11 @@ class ProfileManager {
       document.getElementById('lastName').value = profile.lastName || '';
       document.getElementById('mobileNumber').value = profile.mobileNumber || '';
       document.getElementById('email').value = profile.email || '';
+      document.getElementById('street').value = profile.street || '';
+      document.getElementById('city').value = profile.city || '';
+      document.getElementById('province').value = profile.province || '';
+      document.getElementById('postalCode').value = profile.postalCode || '';
+      document.getElementById('country').value = profile.country || 'Philippines';
     } else {
       // Load from session if available
       const session = sessionStorage.getItem('userSession');
@@ -44,6 +49,8 @@ class ProfileManager {
         const userSession = JSON.parse(session);
         document.getElementById('email').value = userSession.email || '';
       }
+      // Set default country
+      document.getElementById('country').value = 'Philippines';
     }
   }
 
@@ -74,8 +81,67 @@ class ProfileManager {
   }
 
   /**
-   * Validate mobile number
+   * Validate street address
    */
+  validateStreet(street) {
+    if (!street || street.trim().length === 0) {
+      return { valid: false, message: 'Street address is required' };
+    }
+    if (street.trim().length < 5) {
+      return { valid: false, message: 'Street address must be at least 5 characters' };
+    }
+    return { valid: true };
+  }
+
+  /**
+   * Validate city
+   */
+  validateCity(city) {
+    if (!city || city.trim().length === 0) {
+      return { valid: false, message: 'City is required' };
+    }
+    if (city.trim().length < 2) {
+      return { valid: false, message: 'City must be at least 2 characters' };
+    }
+    return { valid: true };
+  }
+
+  /**
+   * Validate province
+   */
+  validateProvince(province) {
+    if (!province || province.trim().length === 0) {
+      return { valid: false, message: 'Province is required' };
+    }
+    if (province.trim().length < 2) {
+      return { valid: false, message: 'Province must be at least 2 characters' };
+    }
+    return { valid: true };
+  }
+
+  /**
+   * Validate postal code
+   */
+  validatePostalCode(postalCode) {
+    if (!postalCode || postalCode.trim().length === 0) {
+      return { valid: false, message: 'Postal code is required' };
+    }
+    // Allow various postal code formats
+    if (!/^[0-9A-Za-z\s\-]{3,}$/.test(postalCode)) {
+      return { valid: false, message: 'Please enter a valid postal code' };
+    }
+    return { valid: true };
+  }
+
+  /**
+   * Validate country
+   */
+  validateCountry(country) {
+    if (!country || country.trim().length === 0) {
+      return { valid: false, message: 'Country is required' };
+    }
+    return { valid: true };
+  }
   validateMobileNumber(mobileNumber) {
     if (!mobileNumber || mobileNumber.trim().length === 0) {
       return { valid: true }; // Optional field
@@ -120,11 +186,21 @@ class ProfileManager {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const mobileNumber = document.getElementById('mobileNumber').value;
+    const street = document.getElementById('street').value;
+    const city = document.getElementById('city').value;
+    const province = document.getElementById('province').value;
+    const postalCode = document.getElementById('postalCode').value;
+    const country = document.getElementById('country').value;
 
     // Validate all fields
     const firstNameValidation = this.validateFirstName(firstName);
     const lastNameValidation = this.validateLastName(lastName);
     const mobileValidation = this.validateMobileNumber(mobileNumber);
+    const streetValidation = this.validateStreet(street);
+    const cityValidation = this.validateCity(city);
+    const provinceValidation = this.validateProvince(province);
+    const postalCodeValidation = this.validatePostalCode(postalCode);
+    const countryValidation = this.validateCountry(country);
 
     if (!firstNameValidation.valid) {
       this.showError(firstNameValidation.message);
@@ -141,12 +217,42 @@ class ProfileManager {
       return;
     }
 
+    if (!streetValidation.valid) {
+      this.showError(streetValidation.message);
+      return;
+    }
+
+    if (!cityValidation.valid) {
+      this.showError(cityValidation.message);
+      return;
+    }
+
+    if (!provinceValidation.valid) {
+      this.showError(provinceValidation.message);
+      return;
+    }
+
+    if (!postalCodeValidation.valid) {
+      this.showError(postalCodeValidation.message);
+      return;
+    }
+
+    if (!countryValidation.valid) {
+      this.showError(countryValidation.message);
+      return;
+    }
+
     // Save profile data
     const profile = {
       firstName: firstName.trim(),
       lastName: lastName.trim(),
       mobileNumber: mobileNumber.trim(),
       email: document.getElementById('email').value.trim(),
+      street: street.trim(),
+      city: city.trim(),
+      province: province.trim(),
+      postalCode: postalCode.trim(),
+      country: country.trim(),
       updatedAt: new Date().toISOString()
     };
 
