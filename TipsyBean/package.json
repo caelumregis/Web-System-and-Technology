@@ -1,0 +1,25 @@
+{
+  "name": "web-system-and-technology-main",
+  "version": "1.0.0",
+  "description": "Welcome to the **Web System and Technology** repository!   This project was developed as part of our school coursework to demonstrate foundational **web development** and **system design** skills. It showcases the process of building a simple but responsive web application using HTML, CSS, and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caelumregis/Web-System-and-Technology.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caelumregis/Web-System-and-Technology/issues"
+  },
+  "homepage": "https://github.com/caelumregis/Web-System-and-Technology#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5"
+  }
+}

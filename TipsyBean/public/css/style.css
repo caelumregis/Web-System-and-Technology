@@ -1,0 +1,369 @@
+/* ===============================
+   CSS CUSTOM PROPERTIES
+================================== */
+:root {
+  --tipsy-brown: #6f4e37;
+  --tipsy-gold: #c59401;
+  --tipsy-accent: #a67c52;
+  --tipsy-cream: #fffaf5;
+  --tipsy-text: #3a2a1a;
+  --tipsy-dark-brown: #4a2c1d;
+  --tipsy-medium-brown: #5a4633;
+  --tipsy-light-text: #f3e8dc;
+  --tipsy-footer-text: #f0e4d7;
+  --tipsy-black: #000;
+  --tipsy-white: #fff;
+  
+  /* Transition timing */
+  --transition-standard: all 0.3s ease;
+  --transition-slow: all 0.9s ease-out;
+  --transition-fast: all 0.15s ease;
+}
+
+/* ===============================
+   GLOBAL STYLES & TYPOGRAPHY
+================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--tipsy-text);
+  background-color: var(--tipsy-cream);
+}
+
+h1, h2, h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--tipsy-dark-brown);
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  color: var(--tipsy-medium-brown);
+}
+
+/* Custom Brand Colors */
+.text-brown { color: var(--tipsy-brown); }
+.bg-brown { background-color: var(--tipsy-brown); }
+.latte-title { color: var(--tipsy-gold); }
+
+/* ===============================
+   HEADER & NAVIGATION
+================================== */
+.custom-navbar {
+  background-color: var(--tipsy-black);
+  border-bottom: 2px solid var(--tipsy-accent);
+  transition: var(--transition-standard);
+}
+
+.navbar-brand {
+  font-family: "Playfair Display SC", serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* Consolidated transitions for interactive elements */
+.nav-link,
+.menu-card,
+.about-logo,
+.footer-icon,
+.google-map-btn,
+.delivery-partner-img {
+  transition: var(--transition-standard);
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--tipsy-gold) !important;
+}
+
+/* Mobile navbar improvements */
+.navbar-toggler {
+  border: 2px solid var(--tipsy-accent);
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(197, 148, 1, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile dropdown menu styling - removed black background */
+.navbar-nav {
+  gap: 0.5rem;
+}
+
+.nav-link {
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: rgba(197, 148, 1, 0.1);
+  color: var(--tipsy-gold) !important;
+}
+
+/* Essential mobile hero caption positioning - using one minimal media query */
+@media (max-width: 768px) {
+  .hero-caption {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    width: 85% !important;
+    max-width: 350px !important;
+    padding: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.4;
+  }
+}
+
+/* ===============================
+   HERO SECTION
+================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-caption {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  transform: translateY(-50%);
+  color: var(--tipsy-white);
+  text-align: right;
+  max-width: 500px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: var(--tipsy-white);
+}
+
+.hero-desc {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--tipsy-light-text);
+}
+
+/* ===============================
+   CONTENT SECTIONS
+================================== */
+.about-section, .menu-section {
+  background-color: var(--tipsy-white);
+}
+
+.location-section, .order-section {
+  background-color: var(--tipsy-cream);
+}
+
+.about-title, .location-title, .menu-title, .order-title {
+  color: var(--tipsy-brown);
+}
+
+.about-logo {
+  max-width: 280px;
+  border-radius: 50%;
+}
+
+.about-logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   LOCATION SECTION
+================================== */
+.location-pin {
+  width: 60px;
+}
+
+/* ===============================
+   MENU SECTION
+================================== */
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(111, 78, 55, 0.2);
+}
+
+.menu-img {
+  border-radius: 10px;
+}
+
+.menu-item-title {
+  color: var(--tipsy-dark-brown);
+}
+
+/* ===============================
+/* ===============================
+   ORDER SECTION
+================================== */
+/* Delivery Partner Images */
+.delivery-partners {
+  margin-top: 0;
+  padding: 15px 0; /* Add padding to prevent cutting off floating elements */
+}
+
+/* ===============================
+   ORDER SECTION - DELIVERY PARTNERS
+================================== */
+.delivery-partners {
+  padding: 15px 0;
+}
+
+.delivery-partner-link {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  position: relative;
+  transition: var(--transition-standard);
+}
+
+.delivery-partner-img {
+  width: 120px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  transition: var(--transition-standard);
+}
+
+.delivery-partner-link:hover .delivery-partner-img {
+  transform: scale(1.05);
+}
+
+.delivery-partner-link:focus {
+  outline: 3px solid var(--tipsy-gold);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Delivery partner border effects */
+.delivery-partner-link:first-child::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: linear-gradient(45deg, #ff2e93, #ff5ca8, #ff2e93);
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0;
+  transition: var(--transition-standard);
+  z-index: -1;
+}
+
+.delivery-partner-link:first-child:hover::before {
+  opacity: 0.8;
+  border-radius: 20% 50% 20% 50%;
+}
+
+.delivery-partner-link:last-child::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  background: linear-gradient(45deg, #00c853, #43ea7a, #00c853);
+  border-radius: 50% 20% 50% 20%;
+  opacity: 0;
+  transition: var(--transition-standard);
+  z-index: -1;
+}
+
+.delivery-partner-link:last-child:hover::before {
+  opacity: 0.8;
+  border-radius: 20% 50% 20% 50%;
+}
+
+/* ===============================
+   BUTTONS & INTERACTIVE ELEMENTS
+================================== */
+.google-map-btn {
+  background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%) !important;
+  border: none !important;
+  color: var(--tipsy-white) !important;
+}
+
+.google-map-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--tipsy-gold);
+  color: var(--tipsy-white) !important;
+}
+
+/* ===============================
+   FOOTER
+================================== */
+.footer-section {
+  background-color: var(--tipsy-black);
+  border-top: 2px solid var(--tipsy-accent);
+}
+
+.footer-text {
+  color: var(--tipsy-footer-text);
+}
+
+.footer-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--tipsy-gold));
+}
+
+/* ===============================
+   ACCESSIBILITY ENHANCEMENTS
+================================== */
+/* Enhanced keyboard navigation styles */
+.keyboard-navigation *:focus {
+  outline: 3px solid #C59401 !important;
+  outline-offset: 2px !important;
+}
+
+/* Skip link styles */
+.skip-link:focus {
+  top: 10px !important;
+}
+
+/* Smooth transitions for interactive elements */
+.menu-card,
+.order-btn,
+.google-map-btn,
+.footer-icon-link {
+  transition: all 0.3s ease;
+}
