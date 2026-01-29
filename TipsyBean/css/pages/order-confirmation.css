@@ -1,0 +1,378 @@
+/**
+ * Order Confirmation Page Styles
+ */
+
+:root {
+  --tipsy-brown: #6F4E37;
+  --tipsy-dark-brown: #4a3325;
+  --tipsy-gold: #D4AF37;
+  --tipsy-cream: #F5E6D3;
+  --success-green: #10b981;
+  --success-green-dark: #059669;
+  --success-green-light: #d1fae5;
+}
+
+body {
+  background-color: #f8f9fa;
+  padding-top: 70px;
+}
+
+.confirmation-container {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.confirmation-wrapper {
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 50px 40px;
+  text-align: center;
+}
+
+/* Success Icon */
+.success-icon {
+  margin-bottom: 30px;
+}
+
+.success-icon i {
+  font-size: 5rem;
+  color: var(--success-green);
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Confirmation Message */
+.confirmation-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tipsy-dark-brown);
+  margin-bottom: 15px;
+}
+
+.confirmation-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Order Number Card */
+.order-number-card {
+  background: linear-gradient(135deg, var(--tipsy-brown), var(--tipsy-dark-brown));
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.order-number-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.order-number-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Delivery Estimate */
+.delivery-estimate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--success-green-light);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.delivery-estimate i {
+  font-size: 2rem;
+  color: var(--success-green);
+}
+
+.delivery-estimate > div {
+  text-align: left;
+}
+
+.estimate-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.estimate-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--tipsy-dark-brown);
+}
+
+/* Order Summary Section */
+.order-summary-section {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--tipsy-dark-brown);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Summary Items */
+.summary-items {
+  margin-bottom: 25px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.item-quantity {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.item-price {
+  font-weight: 600;
+  color: var(--tipsy-brown);
+}
+
+/* Summary Sections */
+.summary-section {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.summary-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tipsy-brown);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary-heading i {
+  font-size: 1.1rem;
+}
+
+.summary-content {
+  color: #333;
+  line-height: 1.6;
+  padding-left: 30px;
+}
+
+/* Order Total Section */
+.order-total-section {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 2px solid #dee2e6;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.total-row-final {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--tipsy-dark-brown);
+  padding-top: 15px;
+  margin-top: 10px;
+  border-top: 2px solid var(--tipsy-brown);
+}
+
+/* Action Buttons */
+.confirmation-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.confirmation-actions .btn {
+  flex: 1;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.btn-view-orders {
+  background-color: var(--tipsy-brown);
+  color: white;
+  border: 2px solid var(--tipsy-brown);
+}
+
+.btn-view-orders:hover {
+  background-color: var(--tipsy-dark-brown);
+  border-color: var(--tipsy-dark-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3);
+  color: white;
+}
+
+.btn-continue-shopping {
+  background-color: white;
+  color: var(--tipsy-brown);
+  border: 2px solid var(--tipsy-brown);
+}
+
+.btn-continue-shopping:hover {
+  background-color: var(--tipsy-cream);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 78, 55, 0.2);
+  color: var(--tipsy-brown);
+}
+
+/* Contact Info */
+.contact-info {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.contact-info a {
+  color: var(--tipsy-brown);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .confirmation-wrapper {
+    padding: 40px 25px;
+  }
+
+  .confirmation-title {
+    font-size: 1.6rem;
+  }
+
+  .confirmation-subtitle {
+    font-size: 1rem;
+  }
+
+  .success-icon i {
+    font-size: 4rem;
+  }
+
+  .order-number-value {
+    font-size: 1.3rem;
+  }
+
+  .estimate-value {
+    font-size: 1.1rem;
+  }
+
+  .confirmation-actions {
+    flex-direction: column;
+  }
+
+  .confirmation-actions .btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .order-summary-section {
+    padding: 20px;
+  }
+
+  .summary-content {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .confirmation-container {
+    padding: 20px 15px;
+  }
+
+  .confirmation-wrapper {
+    padding: 30px 20px;
+  }
+
+  .order-number-card {
+    padding: 20px;
+  }
+
+  .delivery-estimate {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .delivery-estimate > div {
+    text-align: center;
+  }
+}
