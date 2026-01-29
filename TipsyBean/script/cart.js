@@ -45,6 +45,31 @@ class CartManager {
         this.closeCart();
       });
     }
+
+    // Checkout button
+    const cartCheckoutBtn = document.getElementById('cartCheckoutBtn');
+    if (cartCheckoutBtn) {
+      cartCheckoutBtn.addEventListener('click', () => {
+        // Check if cart is empty
+        if (this.getCart().length === 0) {
+          alert('Your cart is empty. Please add items before checkout.');
+          return;
+        }
+        // Redirect to checkout page - determine path based on current location
+        const currentPath = window.location.pathname;
+        let checkoutPath;
+        
+        if (currentPath.includes('/pages/')) {
+          // Already in pages folder (menu.html, profile.html)
+          checkoutPath = './checkout.html';
+        } else {
+          // In root folder (index.html)
+          checkoutPath = './TipsyBean/pages/checkout.html';
+        }
+        
+        window.location.href = checkoutPath;
+      });
+    }
   }
 
   /**
