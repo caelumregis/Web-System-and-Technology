@@ -14,6 +14,7 @@ class ProfileManager {
 
     this.initializeEventListeners();
     this.loadProfileData();
+    this.loadOrders();
   }
 
   /**
@@ -320,6 +321,193 @@ class ProfileManager {
   }
 
   /**
+   * Load and display orders
+   */
+  loadOrders() {
+    const ordersKey = 'tipsybeanOrders';
+    const ordersData = localStorage.getItem(ordersKey);
+    const orders = ordersData ? JSON.parse(ordersData) : [];
+
+    this.renderOrders(orders);
+  }
+
+  /**
+   * Render orders in the profile page
+   */
+  renderOrders(orders) {
+    const container = document.getElementById('ordersContainer');
+
+    if (!orders || orders.length === 0) {
+      container.innerHTML = '<p class="text-muted">No orders yet. <a href="./menu.html">Start shopping!</a></p>';
+      return;
+    }
+
+    // Sort orders by date (newest first)
+    const sortedOrders = orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    let ordersHTML = '';
+
+    sortedOrders.forEach(order => {
+      const orderDate = new Date(order.createdAt);
+      const formattedDate = orderDate.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+      const statusClass = this.getStatusClass(order.status);
+      const statusText = this.getStatusText(order.status);
+
+      ordersHTML += `
+        <div class="order-card">
+          <div class="order-header">
+            <div class="order-info">
+              <h5 class="order-id">Order #${order.id}</h5>
+              <p class="order-date">${formattedDate}</p>
+            </div>
+            <div class="order-status">
+              <span class="status-badge ${statusClass}">${statusText}</span>
+            </div>
+          </div>
+
+          <div class="order-body">
+            <div class="order-items-list">
+              <h6>Items:</h6>
+              <ul>
+                ${order.items.map(item => `
+                  <li>${item.quantity}x ${item.name} - ₱${(item.price * item.quantity).toFixed(2)}</li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div class="order-details-row">
+              <div class="order-detail">
+                <span class="detail-label">Delivery Address:</span>
+                <span class="detail-value">${order.address.street}, ${order.address.city}</span>
+              </div>
+              ${order.additionalNotes ? `
+                <div class="order-detail">
+                  <span class="detail-label">Notes:</span>
+                  <span class="detail-value">${order.additionalNotes}</span>
+                </div>
+              ` : ''}
+              <div class="order-detail">
+                <span class="detail-label">Payment:</span>
+                <span class="detail-value">${order.paymentMethod === 'cash' ? 'Cash on Delivery' : order.paymentMethod}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-footer">
+            <div class="order-total">
+              <span class="total-label">Total Amount:</span>
+              <span class="total-amount">₱${order.total.toFixed(2)}</span>
+            </div>
+            <button class="btn-track-order" onclick="profileManager.trackOrder('${order.id}')">
+              <i class="fas fa-map-marker-alt"></i> Track Order
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = ordersHTML;
+  }
+
+  /**
+   * Get status class for styling
+   */
+  getStatusClass(status) {
+    const statusClasses = {
+      'pending': 'status-pending',
+      'confirmed': 'status-confirmed',
+      'preparing': 'status-preparing',
+      'out-for-delivery': 'status-delivering',
+      'delivered': 'status-delivered',
+      'cancelled': 'status-cancelled'
+    };
+    return statusClasses[status] || 'status-pending';
+  }
+
+  /**
+   * Get status display text
+   */
+  getStatusText(status) {
+    const statusTexts = {
+      'pending': 'Pending',
+      'confirmed': 'Confirmed',
+      'preparing': 'Preparing',
+      'out-for-delivery': 'Out for Delivery',
+      'delivered': 'Delivered',
+      'cancelled': 'Cancelled'
+    };
+    return statusTexts[status] || 'Pending';
+  }
+
+  /**
+   * Track specific order
+   */
+  trackOrder(orderId) {
+    // Find the order
+    const ordersData = localStorage.getItem('tipsybeanOrders');
+    const orders = ordersData ? JSON.parse(ordersData) : [];
+    const order = orders.find(o => o.id === orderId);
+
+    if (!order) {
+      this.showError('Order not found');
+      return;
+    }
+
+    // Show order tracking info
+    const trackingStages = [
+      { stage: 'pending', label: 'Order Placed', completed: true },
+      { stage: 'confirmed', label: 'Order Confirmed', completed: ['confirmed', 'preparing', 'out-for-delivery', 'delivered'].includes(order.status) },
+      { stage: 'preparing', label: 'Preparing Order', completed: ['preparing', 'out-for-delivery', 'delivered'].includes(order.status) },
+      { stage: 'out-for-delivery', label: 'Out for Delivery', completed: ['out-for-delivery', 'delivered'].includes(order.status) },
+      { stage: 'delivered', label: 'Delivered', completed: order.status === 'delivered' }
+    ];
+
+    let trackingHTML = `
+      <div class="tracking-modal-content">
+        <h4>Order Tracking - #${orderId}</h4>
+        <div class="tracking-timeline">
+    `;
+
+    trackingStages.forEach((stage, index) => {
+      const isActive = order.status === stage.stage;
+      const completedClass = stage.completed ? 'completed' : '';
+      const activeClass = isActive ? 'active' : '';
+
+      trackingHTML += `
+        <div class="tracking-stage ${completedClass} ${activeClass}">
+          <div class="stage-icon">
+            <i class="fas ${stage.completed ? 'fa-check-circle' : 'fa-circle'}"></i>
+          </div>
+          <div class="stage-label">${stage.label}</div>
+        </div>
+      `;
+
+      if (index < trackingStages.length - 1) {
+        trackingHTML += `<div class="stage-connector ${stage.completed && trackingStages[index + 1].completed ? 'completed' : ''}"></div>`;
+      }
+    });
+
+    trackingHTML += `
+        </div>
+        <p class="tracking-info">Current Status: <strong>${this.getStatusText(order.status)}</strong></p>
+      </div>
+    `;
+
+    // Show in a simple alert for now (could be enhanced with a modal)
+    alert(`Order #${orderId}\nStatus: ${this.getStatusText(order.status)}\n\nTracking details displayed in the page.`);
+    
+    // You could create a modal here for better UX
+    this.showSuccess(`Order tracking for #${orderId} - Status: ${this.getStatusText(order.status)}`);
+  }
+
+  /**
    * Show success message
    */
   showSuccess(message) {
@@ -347,6 +535,9 @@ class ProfileManager {
     }, 5000);
   }
 }
+
+// Make profileManager globally accessible for onclick handlers
+let profileManager;
 
 /**
  * Initialize profile manager when DOM is ready

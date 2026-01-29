@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize profile manager
-  new ProfileManager();
+  profileManager = new ProfileManager();
 
   // Show floating cart for logged in users (already guaranteed by redirect above)
   const floatingCartContainer = document.querySelector('.floating-cart-container');

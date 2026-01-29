@@ -232,3 +232,321 @@
     font-size: 2rem;
   }
 }
+
+/* ===============================
+   ORDER HISTORY STYLES
+================================== */
+
+.order-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.order-id {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--tipsy-dark-brown);
+  margin: 0;
+}
+
+.order-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+.order-status {
+  text-align: right;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-confirmed {
+  background-color: #cfe2ff;
+  color: #084298;
+}
+
+.status-preparing {
+  background-color: #e7d4f7;
+  color: #5a189a;
+}
+
+.status-delivering {
+  background-color: #cff4fc;
+  color: #055160;
+}
+
+.status-delivered {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.order-body {
+  margin-bottom: 15px;
+}
+
+.order-items-list h6 {
+  font-weight: 700;
+  color: var(--tipsy-brown);
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.order-items-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-items-list li {
+  padding: 5px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.order-details-row {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.detail-value {
+  color: #333;
+  text-align: right;
+  flex: 1;
+  margin-left: 20px;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 2px solid #f0f0f0;
+  margin-top: 15px;
+}
+
+.order-total {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.total-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.total-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--tipsy-brown);
+}
+
+.btn-track-order {
+  background-color: var(--tipsy-brown);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-track-order:hover {
+  background-color: var(--tipsy-dark-brown);
+  transform: translateY(-2px);
+}
+
+.btn-track-order i {
+  font-size: 1rem;
+}
+
+/* Order Tracking Timeline */
+.tracking-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0;
+  padding: 0 10px;
+}
+
+.tracking-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.stage-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+.stage-icon i {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.tracking-stage.completed .stage-icon {
+  background-color: var(--tipsy-brown);
+}
+
+.tracking-stage.completed .stage-icon i {
+  color: white;
+}
+
+.tracking-stage.active .stage-icon {
+  background-color: var(--tipsy-gold);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+
+.tracking-stage.active .stage-icon i {
+  color: white;
+}
+
+.stage-label {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  max-width: 100px;
+}
+
+.tracking-stage.completed .stage-label {
+  color: var(--tipsy-brown);
+  font-weight: 600;
+}
+
+.tracking-stage.active .stage-label {
+  color: var(--tipsy-gold);
+  font-weight: 700;
+}
+
+.stage-connector {
+  flex: 1;
+  height: 3px;
+  background-color: #e0e0e0;
+  margin: 0 -5px;
+  position: relative;
+  top: -35px;
+}
+
+.stage-connector.completed {
+  background-color: var(--tipsy-brown);
+}
+
+.tracking-info {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .btn-track-order {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .order-status {
+    text-align: left;
+  }
+
+  .tracking-timeline {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stage-connector {
+    display: none;
+  }
+
+  .tracking-stage {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .stage-label {
+    text-align: left;
+  }
+}
