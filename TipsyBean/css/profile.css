@@ -1,0 +1,234 @@
+/* ===============================
+   PROFILE PAGE CUSTOM STYLES
+================================== */
+
+.profile-container {
+  min-height: 100vh;
+  background-color: var(--tipsy-cream);
+  padding: 40px 20px;
+  margin-top: 80px;
+}
+
+.profile-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: "Playfair Display", serif;
+  color: var(--tipsy-brown);
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.profile-section {
+  background-color: var(--tipsy-white);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--tipsy-gold);
+}
+
+.section-header {
+  font-family: "Playfair Display", serif;
+  color: var(--tipsy-dark-brown);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 25px;
+  background-color: var(--tipsy-gold);
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  color: var(--tipsy-dark-brown);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: "Open Sans", sans-serif;
+  display: block;
+}
+
+.form-control {
+  border: 2px solid var(--tipsy-accent);
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-family: "Open Sans", sans-serif;
+  transition: var(--transition-standard);
+  background-color: var(--tipsy-cream);
+}
+
+.form-control:focus {
+  border-color: var(--tipsy-gold);
+  background-color: var(--tipsy-white);
+  box-shadow: 0 0 10px rgba(197, 148, 1, 0.2);
+  outline: none;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-row-full {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.save-btn {
+  background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%);
+  border: none;
+  color: var(--tipsy-white);
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: var(--transition-standard);
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(197, 148, 1, 0.3);
+  background: linear-gradient(90deg, var(--tipsy-brown) 0%, var(--tipsy-accent) 100%);
+  color: var(--tipsy-white);
+}
+
+.save-btn:active {
+  transform: translateY(0);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border: none;
+  color: var(--tipsy-white);
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 8px;
+  transition: var(--transition-standard);
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+.account-warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #856404;
+  font-size: 0.95rem;
+}
+
+.success-message {
+  background-color: #d4edda;
+  border: 2px solid #28a745;
+  color: #155724;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  border: 2px solid #dc3545;
+  color: #721c24;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.modal-content {
+  border: 2px solid var(--tipsy-accent);
+  border-radius: 15px;
+}
+
+.modal-header {
+  background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%);
+  color: var(--tipsy-white);
+  border-radius: 13px 13px 0 0;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+}
+
+.btn-close {
+  filter: brightness(0) invert(1);
+}
+
+.modal-body {
+  padding: 25px;
+  color: var(--tipsy-text);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--tipsy-accent);
+  padding: 15px 20px;
+}
+
+.btn-secondary {
+  background-color: var(--tipsy-accent);
+  border: none;
+  color: var(--tipsy-white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--tipsy-brown);
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    font-size: 1.3rem;
+  }
+
+  .profile-section {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}

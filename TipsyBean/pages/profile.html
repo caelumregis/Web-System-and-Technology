@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile - Tipsy Bean</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="../css/normalize.css" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Profile Page Styles -->
+  <link rel="stylesheet" href="../css/profile.css" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top custom-navbar" role="navigation">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center text-white fw-bold fs-3" href="../../index.html">
+          <img src="../assets/logo.jpeg" alt="Tipsy Bean Logo" class="logo-img me-2" />
+          Tipsy Bean
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="../../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white active" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#" id="logoutBtn" data-bs-toggle="modal" data-bs-target="#logoutConfirmModal">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Profile Container -->
+  <div class="profile-container">
+    <div class="profile-wrapper">
+      <h1 class="page-title">My Account</h1>
+
+      <!-- Success Message -->
+      <div class="success-message" id="successMessage"></div>
+
+      <!-- Error Message -->
+      <div class="error-message" id="errorMessage"></div>
+
+      <!-- My Profile Section -->
+      <section class="profile-section">
+        <h2 class="section-header">My Profile</h2>
+
+        <form id="profileForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row-full">
+            <div class="form-group">
+              <label for="mobileNumber" class="form-label">Mobile Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="mobileNumber"
+                name="mobileNumber"
+                placeholder="Enter your mobile number"
+                pattern="[0-9\-\+\s\(\)]+"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+      </section>
+
+      <!-- Email Section -->
+      <section class="profile-section">
+        <h2 class="section-header">Email</h2>
+
+        <form id="emailForm">
+          <div class="form-row-full">
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="save-btn">Save Email</button>
+        </form>
+      </section>
+
+      <!-- Account Management Section -->
+      <section class="profile-section">
+        <h2 class="section-header">Account Management</h2>
+
+        <div class="account-warning">
+          <strong>Warning:</strong> Deleting your account is permanent. You can delete your account and all personal data associated with it by clicking the button below.
+        </div>
+
+        <button
+          type="button"
+          class="delete-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#deleteConfirmModal"
+        >
+          Delete My Account
+        </button>
+      </section>
+    </div>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-labelledby="logoutConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="logoutConfirmLabel">Confirm Logout</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Are you sure you want to logout?</strong></p>
+          <p>You will need to login again to access your profile and saved information.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteConfirmLabel">Delete Account</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Are you sure you want to delete your account?</strong></p>
+          <p>This action is permanent and cannot be undone. All your personal data, profile information, and account history will be deleted.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Session Manager -->
+  <script src="../script/session.js"></script>
+
+  <!-- Profile Script -->
+  <script src="../script/profile.js"></script>
+
+  <script>
+    // Check if user is logged in, redirect to login if not
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!sessionManager.isLoggedIn()) {
+        window.location.href = './login.html';
+      }
+      // Initialize profile manager
+      new ProfileManager();
+
+      // Handle logout button click: only show native fallback if Bootstrap isn't loaded
+      const logoutBtn = document.getElementById('logoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+          // If Bootstrap is available, let the data-bs-toggle modal handle confirmation
+          if (window.bootstrap) {
+            return;
+          }
+          // Otherwise prevent default and show native confirm fallback
+          e.preventDefault();
+          const confirmed = confirm('Are you sure you want to logout?');
+          if (confirmed) {
+            sessionManager.logout();
+            window.location.href = '../../index.html';
+          }
+        });
+      }
+
+      // Confirm button inside modal (duplicate of homepage behavior)
+      const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+      if (confirmLogoutBtn) {
+        confirmLogoutBtn.addEventListener('click', () => {
+          sessionManager.logout();
+          // Close modal if bootstrap is available
+          const modalEl = document.getElementById('logoutConfirmModal');
+          if (window.bootstrap && modalEl) {
+            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+            modal.hide();
+          }
+          // Redirect after a short delay
+          setTimeout(() => {
+            window.location.href = '../../index.html';
+          }, 300);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

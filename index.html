@@ -65,6 +65,20 @@
             <li class="nav-item" role="none">
               <a class="nav-link text-white px-3" href="#order-section" role="menuitem">Order</a>
             </li>
+            <!-- Auth Links - Dynamic based on login status -->
+            <li class="nav-item" role="none" id="authLinks">
+              <a class="nav-link text-white px-3" href="./TipsyBean/pages/login.html" role="menuitem">Login</a>
+            </li>
+            <li class="nav-item" role="none" id="signupLink">
+              <a class="nav-link nav-signup-btn px-3" href="./TipsyBean/pages/login.html" role="menuitem">Sign Up</a>
+            </li>
+            <!-- Profile & Logout - Hidden by default -->
+            <li class="nav-item" role="none" id="profileLink" style="display: none;">
+              <a class="nav-link text-white px-3" href="./TipsyBean/pages/profile.html" role="menuitem">Profile</a>
+            </li>
+            <li class="nav-item" role="none" id="logoutLink" style="display: none;">
+              <a class="nav-link nav-signup-btn px-3" href="#" role="menuitem" id="logoutNavBtn" data-bs-toggle="modal" data-bs-target="#logoutConfirmModal">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -144,16 +158,20 @@
         </div>
         <div class="row justify-content-center g-4">
           <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-            <div class="menu-card p-4 h-100 d-flex flex-column justify-content-center align-items-center">
-              <img src="TipsyBean/assets/Coffee.png" alt="Coffee and beverages selection including espresso, latte, and specialty drinks" class="menu-img img-fluid rounded-3 mb-3" />
-              <h3 class="menu-item-title h4 fw-bold">Beverages</h3>
-            </div>
+            <a href="./TipsyBean/pages/menu.html#beverages" class="menu-card-link text-decoration-none">
+              <div class="menu-card p-4 h-100 d-flex flex-column justify-content-center align-items-center">
+                <img src="TipsyBean/assets/Coffee.png" alt="Coffee and beverages selection including espresso, latte, and specialty drinks" class="menu-img img-fluid rounded-3 mb-3" />
+                <h3 class="menu-item-title h4 fw-bold">Beverages</h3>
+              </div>
+            </a>
           </div>
           <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
-            <div class="menu-card p-4 h-100 d-flex flex-column justify-content-center align-items-center">
-              <img src="TipsyBean/assets/Pasta.png" alt="Food selection including pasta, sandwiches, and fresh pastries" class="menu-img img-fluid rounded-3 mb-3" />
-              <h3 class="menu-item-title h4 fw-bold">Food</h3>
-            </div>
+            <a href="./TipsyBean/pages/menu.html#food" class="menu-card-link text-decoration-none">
+              <div class="menu-card p-4 h-100 d-flex flex-column justify-content-center align-items-center">
+                <img src="TipsyBean/assets/Pasta.png" alt="Food selection including pasta, sandwiches, and fresh pastries" class="menu-img img-fluid rounded-3 mb-3" />
+                <h3 class="menu-item-title h4 fw-bold">Food</h3>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -199,6 +217,26 @@
     </section>
   </main>
 
+  <!-- Logout Confirmation Modal -->
+  <div class="modal fade" id="logoutConfirmModal" tabindex="-1" aria-labelledby="logoutConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%); color: var(--tipsy-white); border-radius: 13px 13px 0 0;">
+          <h1 class="modal-title fs-5" id="logoutConfirmLabel" style="font-weight: 700; font-family: 'Playfair Display', serif;">Confirm Logout</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="filter: brightness(0) invert(1);"></button>
+        </div>
+        <div class="modal-body" style="padding: 25px; color: var(--tipsy-text);">
+          <p style="margin-bottom: 0;"><strong>Are you sure you want to logout?</strong></p>
+          <p>You will need to login again to access your profile and saved information.</p>
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid var(--tipsy-accent); padding: 15px 20px;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: var(--tipsy-accent); border: none; color: var(--tipsy-white);">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== FOOTER ===== -->
   <footer class="footer-section py-4" role="contentinfo">
     <div class="container">
@@ -233,11 +271,56 @@
   <!-- Bootstrap JS Bundle -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
   ></script>
 
+  <!-- Session Manager -->
+  <script src="./TipsyBean/script/session.js"></script>
+
   <!-- Custom JS -->
   <script src="./TipsyBean/script/script.js"></script>
+
+  <!-- Home Page Session Management -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check if user is logged in and update navbar accordingly
+      const isLoggedIn = sessionManager.isLoggedIn();
+      const authLinks = document.getElementById('authLinks');
+      const signupLink = document.getElementById('signupLink');
+      const profileLink = document.getElementById('profileLink');
+      const logoutLink = document.getElementById('logoutLink');
+      const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
+
+      if (isLoggedIn) {
+        // Hide login/signup, show profile/logout
+        authLinks.style.display = 'none';
+        signupLink.style.display = 'none';
+        profileLink.style.display = 'block';
+        logoutLink.style.display = 'block';
+
+        // Handle logout confirmation
+        if (confirmLogoutBtn) {
+          confirmLogoutBtn.addEventListener('click', () => {
+            sessionManager.logout();
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('logoutConfirmModal'));
+            if (modal) {
+              modal.hide();
+            }
+            // Refresh page to show Login/Sign Up buttons
+            setTimeout(() => {
+              window.location.reload();
+            }, 500);
+          });
+        }
+      } else {
+        // Show login/signup, hide profile/logout
+        authLinks.style.display = 'block';
+        signupLink.style.display = 'block';
+        profileLink.style.display = 'none';
+        logoutLink.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

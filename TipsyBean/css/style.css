@@ -87,6 +87,23 @@ p {
   color: var(--tipsy-gold) !important;
 }
 
+/* Sign Up Button Styling */
+.nav-signup-btn {
+  background: linear-gradient(90deg, var(--tipsy-accent) 0%, var(--tipsy-brown) 100%) !important;
+  border-radius: 8px;
+  padding: 8px 20px !important;
+  font-weight: 600;
+  transition: var(--transition-standard);
+  margin-left: 8px;
+}
+
+.nav-signup-btn:hover {
+  background: linear-gradient(90deg, var(--tipsy-brown) 0%, var(--tipsy-accent) 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(197, 148, 1, 0.3);
+  color: var(--tipsy-gold) !important;
+}
+
 /* Mobile navbar improvements */
 .navbar-toggler {
   border: 2px solid var(--tipsy-accent);
@@ -364,6 +381,19 @@ p {
 .menu-card,
 .order-btn,
 .google-map-btn,
-.footer-icon-link {
+.footer-icon-link,
+.menu-card-link {
   transition: all 0.3s ease;
+}
+
+/* Menu Card Link Styling */
+.menu-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-card-link:hover .menu-card {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(175, 124, 82, 0.3);
 }
