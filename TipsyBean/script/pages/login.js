@@ -163,7 +163,7 @@ class LoginManager {
 
     // Redirect after 2 seconds to home page
     setTimeout(() => {
-      window.location.href = '../../index.html';
+      window.location.href = '/index.html';
     }, 2000);
   }
 

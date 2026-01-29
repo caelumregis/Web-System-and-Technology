@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (confirmed) {
         sessionManager.logout();
         cartManager.clearCart();
-        window.location.href = '../../index.html';
+        window.location.href = '/index.html';
       }
     });
   }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       // Redirect after a short delay
       setTimeout(() => {
-        window.location.href = '../../index.html';
+        window.location.href = '/index.html';
       }, 300);
     });
   }

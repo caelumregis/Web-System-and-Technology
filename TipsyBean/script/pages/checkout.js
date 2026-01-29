@@ -148,7 +148,7 @@ class CheckoutManager {
       confirmLogoutBtn.addEventListener('click', () => {
         sessionManager.logout();
         cartManager.clearCart();
-        window.location.href = '../../index.html';
+        window.location.href = '/index.html';
       });
     }
   }

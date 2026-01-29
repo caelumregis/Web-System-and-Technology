@@ -64,7 +64,7 @@ class CartManager {
           checkoutPath = './checkout.html';
         } else {
           // In root folder (index.html)
-          checkoutPath = './TipsyBean/pages/checkout.html';
+          checkoutPath = './TipsyBean/pages/customer/checkout.html';
         }
         
         window.location.href = checkoutPath;
