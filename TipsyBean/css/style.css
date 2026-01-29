@@ -397,3 +397,15 @@ p {
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(175, 124, 82, 0.3);
 }
+
+/* Cart Icon Styling */
+.cart-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+#cartLink:hover .cart-icon-img {
+  transform: scale(1.1);
+}

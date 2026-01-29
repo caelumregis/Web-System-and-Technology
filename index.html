@@ -19,10 +19,20 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="./TipsyBean/css/style.css" />
 
+  <!-- Floating Cart Styles -->
+  <link rel="stylesheet" href="./TipsyBean/css/floating-cart.css" />
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
   />
 </head>
 
@@ -268,6 +278,14 @@
     </div>
   </footer>
 
+  <!-- Floating Cart Button -->
+  <div class="floating-cart-container">
+    <a href="./TipsyBean/pages/cart.html" class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
+      <img src="./TipsyBean/assets/cart-icon.png" alt="Shopping Cart" class="floating-cart-icon" />
+      <span class="floating-cart-badge" id="floatingCartBadge" style="display: none;"></span>
+    </a>
+  </div>
+
   <!-- Bootstrap JS Bundle -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -276,6 +294,9 @@
 
   <!-- Session Manager -->
   <script src="./TipsyBean/script/session.js"></script>
+
+  <!-- Cart Manager -->
+  <script src="./TipsyBean/script/cart.js"></script>
 
   <!-- Custom JS -->
   <script src="./TipsyBean/script/script.js"></script>
