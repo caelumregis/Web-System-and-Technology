@@ -317,7 +317,7 @@ class ProfileManager {
     console.log('Session cleared, redirecting...');
     
     // Redirect to home page
-    window.location.href = '/index.html';
+    window.location.href = '../../../index.html';
   }
 
   /**

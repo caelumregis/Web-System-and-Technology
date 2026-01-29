@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutLink.addEventListener('click', (e) => {
       e.preventDefault();
       sessionManager.logout();
-      window.location.href = '/index.html';
+      window.location.href = '../../../index.html';
     });
   }
 
