@@ -275,12 +275,12 @@ class CheckoutManager {
     // Clear cart
     localStorage.removeItem('tipsybeanCart');
 
-    // Show success and redirect
-    this.showSuccess('Order placed successfully! Redirecting to menu...');
+    // Show success and redirect to order confirmation
+    this.showSuccess('Order placed successfully! Redirecting to confirmation...');
     
     setTimeout(() => {
-      window.location.href = './menu.html';
-    }, 2000);
+      window.location.href = `./order-confirmation.html?orderId=${order.id}`;
+    }, 1500);
   }
 
   /**
