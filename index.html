@@ -280,11 +280,32 @@
 
   <!-- Floating Cart Button -->
   <div class="floating-cart-container">
-    <a href="./TipsyBean/pages/cart.html" class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
+    <button class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
       <img src="./TipsyBean/assets/cart-icon.png" alt="Shopping Cart" class="floating-cart-icon" />
       <span class="floating-cart-badge" id="floatingCartBadge" style="display: none;"></span>
-    </a>
+    </button>
   </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>My Cart</h2>
+      <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+    </div>
+    <div class="cart-items-container" id="cartItemsContainer">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-amount" id="cartTotalAmount">₱0</span>
+      </div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" id="cartOverlay"></div>
 
   <!-- Bootstrap JS Bundle -->
   <script
@@ -301,47 +322,7 @@
   <!-- Custom JS -->
   <script src="./TipsyBean/script/script.js"></script>
 
-  <!-- Home Page Session Management -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Check if user is logged in and update navbar accordingly
-      const isLoggedIn = sessionManager.isLoggedIn();
-      const authLinks = document.getElementById('authLinks');
-      const signupLink = document.getElementById('signupLink');
-      const profileLink = document.getElementById('profileLink');
-      const logoutLink = document.getElementById('logoutLink');
-      const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
-
-      if (isLoggedIn) {
-        // Hide login/signup, show profile/logout
-        authLinks.style.display = 'none';
-        signupLink.style.display = 'none';
-        profileLink.style.display = 'block';
-        logoutLink.style.display = 'block';
-
-        // Handle logout confirmation
-        if (confirmLogoutBtn) {
-          confirmLogoutBtn.addEventListener('click', () => {
-            sessionManager.logout();
-            // Close modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('logoutConfirmModal'));
-            if (modal) {
-              modal.hide();
-            }
-            // Refresh page to show Login/Sign Up buttons
-            setTimeout(() => {
-              window.location.reload();
-            }, 500);
-          });
-        }
-      } else {
-        // Show login/signup, hide profile/logout
-        authLinks.style.display = 'block';
-        signupLink.style.display = 'block';
-        profileLink.style.display = 'none';
-        logoutLink.style.display = 'none';
-      }
-    });
-  </script>
+  <!-- Home Page Script -->
+  <script src="./TipsyBean/script/home.js"></script>
 </body>
 </html>

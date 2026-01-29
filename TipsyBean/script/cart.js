@@ -18,6 +18,103 @@ class CartManager {
   }
 
   /**
+   * Setup cart sidebar event listeners
+   */
+  setupCartSidebar() {
+    // Open cart when floating button is clicked
+    const floatingCartBtn = document.getElementById('floatingCartBtn');
+    if (floatingCartBtn) {
+      floatingCartBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.toggleCart();
+      });
+    }
+
+    // Close cart when close button is clicked
+    const cartCloseBtn = document.getElementById('cartCloseBtn');
+    if (cartCloseBtn) {
+      cartCloseBtn.addEventListener('click', () => {
+        this.closeCart();
+      });
+    }
+
+    // Close cart when overlay is clicked
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartOverlay) {
+      cartOverlay.addEventListener('click', () => {
+        this.closeCart();
+      });
+    }
+  }
+
+  /**
+   * Toggle cart sidebar open/close
+   */
+  toggleCart() {
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    
+    if (cartSidebar && cartOverlay) {
+      cartSidebar.classList.toggle('open');
+      cartOverlay.classList.toggle('active');
+      
+      if (cartSidebar.classList.contains('open')) {
+        this.renderCartItems();
+      }
+    }
+  }
+
+  /**
+   * Close cart sidebar
+   */
+  closeCart() {
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    
+    if (cartSidebar && cartOverlay) {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('active');
+    }
+  }
+
+  /**
+   * Render cart items in sidebar
+   */
+  renderCartItems() {
+    const cart = this.getCart();
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalAmount = document.getElementById('cartTotalAmount');
+    
+    if (!cartItemsContainer) return;
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+      if (cartTotalAmount) cartTotalAmount.textContent = '₱0';
+      return;
+    }
+
+    const cartHTML = cart.map(item => `
+      <div class="cart-item">
+        <div class="cart-item-qty">${item.quantity}</div>
+        <div class="cart-item-details">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">₱${item.price.toFixed(2)}</div>
+        </div>
+        <button class="cart-item-remove" onclick="cartManager.removeFromCart('${item.id}')" title="Remove item">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `).join('');
+
+    cartItemsContainer.innerHTML = cartHTML;
+
+    const total = this.getCartTotal();
+    if (cartTotalAmount) {
+      cartTotalAmount.textContent = `₱${total.toFixed(2)}`;
+    }
+  }
+
+  /**
    * Get all cart items
    */
   getCart() {
@@ -66,6 +163,7 @@ class CartManager {
 
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
     this.updateCartUI();
+    this.renderCartItems();
     return true;
   }
 
@@ -78,6 +176,7 @@ class CartManager {
     cart = cart.filter(item => item.id !== itemId);
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
     this.updateCartUI();
+    this.renderCartItems();
     return true;
   }
 
@@ -97,6 +196,7 @@ class CartManager {
         item.quantity = quantity;
         localStorage.setItem(this.cartKey, JSON.stringify(cart));
         this.updateCartUI();
+        this.renderCartItems();
       }
     }
   }
@@ -147,5 +247,6 @@ const cartManager = new CartManager();
 
 // Update cart UI on page load
 document.addEventListener('DOMContentLoaded', () => {
+  cartManager.setupCartSidebar();
   cartManager.updateCartUI();
 });

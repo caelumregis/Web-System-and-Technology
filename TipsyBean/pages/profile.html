@@ -233,59 +233,36 @@
   <!-- Profile Script -->
   <script src="../script/profile.js"></script>
 
-  <script>
-    // Check if user is logged in, redirect to login if not
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!sessionManager.isLoggedIn()) {
-        window.location.href = './login.html';
-      }
-      // Initialize profile manager
-      new ProfileManager();
-
-      // Handle logout button click: only show native fallback if Bootstrap isn't loaded
-      const logoutBtn = document.getElementById('logoutBtn');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-          // If Bootstrap is available, let the data-bs-toggle modal handle confirmation
-          if (window.bootstrap) {
-            return;
-          }
-          // Otherwise prevent default and show native confirm fallback
-          e.preventDefault();
-          const confirmed = confirm('Are you sure you want to logout?');
-          if (confirmed) {
-            sessionManager.logout();
-            window.location.href = '../../index.html';
-          }
-        });
-      }
-
-      // Confirm button inside modal (duplicate of homepage behavior)
-      const confirmLogoutBtn = document.getElementById('confirmLogoutBtn');
-      if (confirmLogoutBtn) {
-        confirmLogoutBtn.addEventListener('click', () => {
-          sessionManager.logout();
-          // Close modal if bootstrap is available
-          const modalEl = document.getElementById('logoutConfirmModal');
-          if (window.bootstrap && modalEl) {
-            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-            modal.hide();
-          }
-          // Redirect after a short delay
-          setTimeout(() => {
-            window.location.href = '../../index.html';
-          }, 300);
-        });
-      }
-    });
-  </script>
+  <!-- Profile Page Script -->
+  <script src="../script/profile-page.js"></script>
 
   <!-- Floating Cart Button -->
   <div class="floating-cart-container">
-    <a href="./cart.html" class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
+    <button class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
       <img src="../assets/cart-icon.png" alt="Shopping Cart" class="floating-cart-icon" />
       <span class="floating-cart-badge" id="floatingCartBadge" style="display: none;"></span>
-    </a>
+    </button>
   </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>My Cart</h2>
+      <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+    </div>
+    <div class="cart-items-container" id="cartItemsContainer">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total:</span>
+        <span class="cart-total-amount" id="cartTotalAmount">₱0</span>
+      </div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Cart Overlay -->
+  <div class="cart-overlay" id="cartOverlay"></div>
 </body>
 </html>
