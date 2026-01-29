@@ -29,7 +29,117 @@
   margin-bottom: 3rem;
   font-family: 'Playfair Display', serif;
 }
+/* ===== SEARCH SECTION ===== */
+.search-section {
+  margin-bottom: 3rem;
+  text-align: center;
+}
 
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  color: var(--tipsy-brown);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 50px 15px 50px;
+  font-size: 1rem;
+  border: 2px solid var(--tipsy-brown);
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.search-input:focus {
+  border-color: var(--tipsy-accent);
+  box-shadow: 0 0 10px rgba(201, 168, 118, 0.3);
+}
+
+.search-input::placeholder {
+  color: #ccc;
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--tipsy-brown);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.clear-search-btn:hover {
+  color: var(--tipsy-accent);
+}
+
+.search-results-info {
+  font-size: 0.95rem;
+  color: var(--tipsy-brown);
+  font-weight: 500;
+}
+
+/* ===== HIDDEN ITEMS ===== */
+.menu-item.hidden {
+  display: none !important;
+}
+
+.menu-section.all-hidden {
+  display: none;
+}
+
+/* ===== NO RESULTS ===== */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.no-results i {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--tipsy-brown);
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.no-results-btn {
+  background-color: var(--tipsy-brown);
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.no-results-btn:hover {
+  background-color: var(--tipsy-accent);
+}
 /* Menu Section */
 .menu-section {
   margin-bottom: 4rem;

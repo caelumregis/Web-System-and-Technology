@@ -99,6 +99,26 @@
     <div class="menu-container">
       <h1 class="menu-page-title">Our Menu</h1>
 
+      <!-- Search Bar -->
+      <div class="search-section">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search for items... (e.g., Latte, Americano, Pastry)"
+            aria-label="Search menu items"
+          />
+          <button class="clear-search-btn" id="clearSearchBtn" style="display: none;">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="search-results-info" id="searchResultsInfo" style="display: none;">
+          Found <span id="resultCount">0</span> item(s)
+        </div>
+      </div>
+
       <!-- Beverages Section -->
       <section id="beverages" class="menu-section">
         <h2 class="menu-section-title">Beverages</h2>
@@ -363,7 +383,8 @@
 
   <!-- Menu Page Script -->
   <script src="../script/menu.js"></script>
-
+  <!-- Menu Search Script -->
+  <script src="../script/menu-search.js"></script>
   <!-- Floating Cart Button -->
   <div class="floating-cart-container">
     <button class="floating-cart-btn" id="floatingCartBtn" title="View Shopping Cart">
