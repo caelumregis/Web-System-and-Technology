@@ -278,6 +278,7 @@ body {
   border-color: var(--tipsy-dark-brown);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3);
+  color: white;
 }
 
 .btn-continue-shopping {
@@ -290,6 +291,7 @@ body {
   background-color: var(--tipsy-cream);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(111, 78, 55, 0.2);
+  color: var(--tipsy-brown);
 }
 
 /* Contact Info */

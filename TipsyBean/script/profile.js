@@ -344,10 +344,13 @@ class ProfileManager {
 
     // Sort orders by date (newest first)
     const sortedOrders = orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    
+    // Limit to 2 orders for profile page
+    const limitedOrders = sortedOrders.slice(0, 2);
 
     let ordersHTML = '';
 
-    sortedOrders.forEach(order => {
+    limitedOrders.forEach(order => {
       const orderDate = new Date(order.createdAt);
       const formattedDate = orderDate.toLocaleDateString('en-US', { 
         year: 'numeric', 
@@ -414,6 +417,14 @@ class ProfileManager {
     });
 
     container.innerHTML = ordersHTML;
+    
+    // Add "View All Orders" button if there are more than 2 orders
+    if (sortedOrders.length > 2) {
+      const viewAllBtn = document.getElementById('viewAllOrdersBtn');
+      if (viewAllBtn) {
+        viewAllBtn.style.display = 'inline-block';
+      }
+    }
   }
 
   /**

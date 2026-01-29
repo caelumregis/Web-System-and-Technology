@@ -321,6 +321,35 @@
   color: #842029;
 }
 
+/* View All Orders Button */
+.btn-view-all-orders {
+  display: inline-block;
+  width: 100%;
+  background-color: var(--tipsy-brown);
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--tipsy-brown);
+}
+
+.btn-view-all-orders:hover {
+  background-color: var(--tipsy-dark-brown);
+  border-color: var(--tipsy-dark-brown);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3);
+}
+
+.btn-view-all-orders i {
+  margin-right: 8px;
+}
+
 .order-body {
   margin-bottom: 15px;
 }
