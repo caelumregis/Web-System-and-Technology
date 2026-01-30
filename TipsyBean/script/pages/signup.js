@@ -304,32 +304,50 @@ class SignupManager {
   /**
    * Complete user registration
    */
-  completeRegistration() {
-    // Save user to localStorage
-    const users = JSON.parse(localStorage.getItem('tipsybeanUsers') || '[]');
-    users.push(this.pendingUserData);
-    localStorage.setItem('tipsybeanUsers', JSON.stringify(users));
+async completeRegistration() {
+    const userData = this.formData || this.pendingUserData;
 
-    // Create session
-    sessionManager.createSession(
-      this.pendingUserData.email,
-      this.pendingUserData.firstName,
-      this.pendingUserData.lastName
-    );
-
-    // Close modal
-    if (this.verificationModal) {
-      this.verificationModal.hide();
+    if (!userData || !userData.firstName) {
+        console.error("Error: No user data found to send!", this.formData);
+        alert("Session expired. Please fill out the form again.");
+        return;
     }
 
-    // Show success message
-    this.showSuccess('Account created successfully! Redirecting to profile...');
+    try {
+        console.log("Sending this data to server:", userData);
+    
+        const response = await fetch('http://localhost:5000/api/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                email: userData.email,
+                password: userData.password
+            })
+        });
+    
+        const result = await response.json();
+    
+        if (response.ok) {
+            sessionManager.createSession(
+                userData.email, 
+                userData.firstName, 
+                userData.lastName
+            );
+    
+            alert("Account created successfully!");
+            
+            window.location.href = "./profile.html"; 
+        } else {
+            alert("Signup failed: " + (result.error || "Unknown error"));
+        }
+    } catch (error) {
+        console.error("📡 Network error:", error);
+        alert("Could not connect to the server. Is it running?");
+    }
+}
 
-    // Redirect to profile page
-    setTimeout(() => {
-      window.location.href = './profile.html';
-    }, 2000);
-  }
 
   /**
    * Resend verification code
